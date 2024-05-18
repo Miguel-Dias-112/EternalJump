@@ -6,7 +6,8 @@ function IndicadorClique(props){
   console.log(props)
     return (
       <>
-        <div style={{visibility: props.visivel}} className='IndicadorVisual'>
+        <div style={{visibility: props.visivel}} onClick={()=>{props.blink()}} className='IndicadorVisual'>
+          Clique na Tela
         </div>
       </>
     )
@@ -14,52 +15,60 @@ function IndicadorClique(props){
 class SinglePlayerGame extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { contadorTempo: 0, visivel:'hidden'};
+    this.state = { contadorTempo: 0, pontos:0,cor:'white',visivel:'hidden'};
 
   }
-
+  intervalos=[
+    0,1,1,0,0,1,1,0,0,1,1,
+    0,0,1,1,0,1,1,0,0,1,1,
+    0,0,1,1,0,0,1,1,0,0,1,
+    0,0,0,0,0,0,0,0,1,1,0,
+    0,0,1,1,0,0,1,1,0,0,0,
+    1,1,0,0,0,1,1,0,0,1,5,
+    1,1,0,0,1,1,0,0,1,1,
+    0,0,1,1,0,1,1,0,0,1,1,
+    0,0,1,1,0,0,1,1,0,0,1,
+    0,0,0,0,0,0,0,0,1,1,0,
+    0,0,1,1,0,0,1,1,0,0,0,
+    1,1,0,0,0,1,1,0,0,1,5]
   componentDidMount() {
+    console.log('mounted')
     this.interval = setInterval(() => {
       
       this.setState({ contadorTempo: this.state.contadorTempo + 1 });
-      // for (let i = 0; i < intervalos.length; i++) {
-      //   const intervalo = intervalos[i];
-      //   if(this.state.contadorTempo > intervalo[0] && this.state.contadorTempo < intervalo[1]){
-      //     this.setState({ visivel: 'visible' });
-      //   }else{
-      //     for (let x = 0; x < intervalos.length; x++) {
-            
-      //       if(this.state.contadorTempo > intervalos[x][1]){
-      //         this.setState({ visivel: 'hidden' });
-      //       }
-            
-      //     }
-      //   }
-      // }
+    
 
-      let intervalos=[0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,]
+    
       let contador = this.state.contadorTempo
-      if(intervalos[contador]===1){
+      if(this.intervalos[contador]===1){
         this.setState({ visivel: 'visible' });
       }
-      else{
+      if(this.intervalos[contador]===5){
+        window.alert('Fim de jogo')
+      }
+      if(this.intervalos[contador]===0){
+      
+      
         this.setState({ visivel: 'hidden' });
       }
-
-    
-    
-      
     }, 500);
   }
-
+  blink = function(){
+    this.setState({ cor: 'green' });
+    this.setState({ visivel: 'hidden' });
+    this.setState({ pontos: this.state.pontos + 1 });
+    window.setTimeout(()=>{
+      this.setState({ cor: 'white' });
+    }, 200)
+  }.bind(this)
   render() {
     
     return (  
       <>
-        <main className='SinglePlayerGame'>
+        <main style={{background: this.state.cor}} className='SinglePlayerGame'>
             <Player></Player>
-            {this.state.contadorTempo}
-            <IndicadorClique visivel={this.state.visivel}></IndicadorClique>
+            <IndicadorClique  blink={this.blink} visivel={this.state.visivel}></IndicadorClique>
+            Você tem: {this.state.pontos} pontos
         </main>
       </>
     )

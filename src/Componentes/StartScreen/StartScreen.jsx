@@ -2,12 +2,15 @@ import { useState } from 'react'
 import './StartScreen.css'
 export default function StartScreen(props) {
 
+  let startGame = function(){
+    window.location.href = '/singleplayer'
+  }
 
   return (
     <>
       <main className='StartScreen'>
-        <h1>Start Screen</h1>
-        <button> Single Player</button>
+        <h1>Jump Adventure</h1>
+        <button onClick={startGame}> Single Player</button>
         <button> Multiplayer</button>
       </main>
     </>
