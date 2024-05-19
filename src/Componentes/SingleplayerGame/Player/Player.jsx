@@ -48,7 +48,7 @@ class Player extends React.Component {
         setTimeout(()=>{
           p.classList.remove('jump')
           this.lock = false
-        },1010)
+        },1000)
       }
       
       
