@@ -1,6 +1,6 @@
 import { useId, useState } from 'react'
 import './Player.css'
-import sprite from '../../../Assets/bounce.gif'
+import sprite from '../../../Assets/dancing.gif'
 
 
 
@@ -9,21 +9,31 @@ import React from 'react';
 
 
 class Player extends React.Component {
+  lock = false;
   constructor(props) {
     super(props);
     this.state = { contadorTempo: 0, cor:'white',visivel:'hidden'};
 
   }
- 
-  componentDidMount() {
-    const animate = () => {
-        console.log('mounted')
+  componentDidUpdate() {
+      if(this.props.pula && !this.lock){
+        this.lock = true;
         let p =document.querySelector('#x')
-        p.innerHTML=''
-        let img = document.createElement('img')
-        img.src = './'+sprite
-        p.appendChild(img)
-          
+        p.classList.add('jump');
+        setTimeout(()=>{
+          p.classList.remove('jump')
+          this.lock = false
+        },1000)
+      }
+  }
+  componentDidMount() {
+
+    const animate = () => {
+      let p =document.querySelector('#x')
+      p.innerHTML=''
+      let img = document.createElement('img')
+      img.src = './'+sprite
+      p.appendChild(img)
     }
     window.setInterval(animate, 800);
   }
