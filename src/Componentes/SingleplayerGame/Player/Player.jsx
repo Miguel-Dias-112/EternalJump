@@ -1,7 +1,8 @@
 import { useId, useState } from 'react'
 import './Player.css'
-import sprite from '../../../Assets/dancing.gif'
-
+import sprite from '../../../Assets/dancing2.gif'
+import alert from '../../../Assets/Alert.png'
+import morre from '../../../Assets/caindo.gif'
 
 
 
@@ -15,27 +16,45 @@ class Player extends React.Component {
     this.state = { contadorTempo: 0, cor:'white',visivel:'hidden'};
 
   }
+  dieonce = false;
+  animate(anim){
+    let p =document.querySelector('#x')
+    p.innerHTML=''
+    let img = document.createElement('img')
+    p.appendChild(img)
+    img.src = './'+anim
+
+  }
   componentDidUpdate() {
+      console.log(this.props)
+      let p =document.querySelector('#x')
+      if(this.dieonce){
+        return
+      }
+      if(this.props.vidas === 0 && !this.dieonce){
+        this.animate(morre)
+        this.dieonce = true;
+        return}
+      this.animate(sprite)
+      if(this.props.acerto === false){
+        p.classList.add('alert')
+      }
       if(this.props.pula && !this.lock){
         this.lock = true;
-        let p =document.querySelector('#x')
-        p.classList.add('jump');
-        setTimeout(()=>{
-          p.classList.remove('jump')
-          this.lock = false
-        },1000)
+       
       }
+
+      p.classList.add('jump');
+      setTimeout(()=>{
+        p.classList.remove('jump')
+        p.classList.remove('alert')
+        this.lock = false
+      },1000)
   }
   componentDidMount() {
 
-    const animate = () => {
-      let p =document.querySelector('#x')
-      p.innerHTML=''
-      let img = document.createElement('img')
-      img.src = './'+sprite
-      p.appendChild(img)
-    }
-    window.setInterval(animate, 800);
+   
+  this.animate()    
   }
   render() {
     

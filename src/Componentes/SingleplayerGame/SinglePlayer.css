@@ -31,13 +31,15 @@
     align-items: center;
 
     gap: 20px;
-    width: 80%;
+    height: 80%;
     max-width: 500px;
     aspect-ratio: 9/9;
     flex-wrap: wrap;
     border: 10px solid black;
     border-radius: 5px;
-
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .GameArea .GameControls{
