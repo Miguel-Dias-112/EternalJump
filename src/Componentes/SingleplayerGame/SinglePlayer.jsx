@@ -83,21 +83,17 @@ class SinglePlayerGame extends Component {
     }
     if(botao.style.backgroundColor === 'red'){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'] });
-      setTimeout(() => {
-        this.setState({ acerto: true,pula:false});
-      }, 1010);
       console.log('errou',this.state.vidas);
-
     }
     if(botao.style.backgroundColor === 'green'){
       console.log('acertou');
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
-      setTimeout(() => {
-        this.setState({ pula: false });
-      }, 1010);
       return;
     }
 
+    window.setTimeout(() => {
+      this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
+    },500)
     
     
 
@@ -120,7 +116,7 @@ class SinglePlayerGame extends Component {
         <section className='GameArea'>
           <section className='Game'>
             <div className='GameBackground'></div>
-            <Player pula={this.state.pula} vidas ={this.state.vidas} acerto={this.state.acerto}/>
+            <Player pula={this.state.pula} vidas ={this.state.vidas} contador={this.state.contadorTempo} acerto={this.state.acerto}/>
 
           </section>
           <section className='GameControls'>  

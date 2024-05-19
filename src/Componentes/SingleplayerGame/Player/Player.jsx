@@ -17,6 +17,7 @@ class Player extends React.Component {
 
   }
   dieonce = false;
+  
   animate(anim){
     let p =document.querySelector('#x')
     p.innerHTML=''
@@ -26,35 +27,45 @@ class Player extends React.Component {
 
   }
   componentDidUpdate() {
-      console.log(this.props)
+      console.log('teste')
       let p =document.querySelector('#x')
       if(this.dieonce){
         return
       }
-      if(this.props.vidas === 0 && !this.dieonce){
-        this.animate(morre)
+      if(this.props.vidas === 0){
         this.dieonce = true;
-        return}
-      this.animate(sprite)
-      if(this.props.acerto === false){
-        p.classList.add('alert')
       }
+      if(this.props.acerto === false){
+          p.classList.add('alert')
+          setTimeout(()=>{
+            p.classList.remove('alert')
+          },1010)
+      }
+
       if(this.props.pula && !this.lock){
         this.lock = true;
-       
+        p.classList.add('jump')
+        setTimeout(()=>{
+          p.classList.remove('jump')
+          this.lock = false
+        },1010)
       }
-
-      p.classList.add('jump');
-      setTimeout(()=>{
-        p.classList.remove('jump')
-        p.classList.remove('alert')
-        this.lock = false
-      },1000)
+      
+      
   }
   componentDidMount() {
+    let  x = window.setInterval(()=>{
+      if(this.dieonce){
+        this.animate(morre)
 
+        clearInterval(x)
+        return
+      }
+      this.animate(sprite)
+
+    },800)
    
-  this.animate()    
+    this.animate(sprite)    
   }
   render() {
     
