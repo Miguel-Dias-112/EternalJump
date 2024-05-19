@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import './SinglePlayer.css'
 import Player from './Player/Player'
+import sprite from '../../Assets/sprite.png'
+import cronometro from '../../Assets/cronometro.jpg'
 import React from 'react';
 function IndicadorClique(props){
   console.log(props)
     return (
       <>
         <div style={{visibility: props.visivel}} onClick={()=>{props.blink()}} className='IndicadorVisual'>
-          Clique na Tela
+           Equilibrar
         </div>
       </>
     )
@@ -53,6 +55,9 @@ class SinglePlayerGame extends React.Component {
       }
     }, 500);
   }
+  formatarNumero = function(numero) {
+    return numero.toString().padStart(3, '0');
+}
   blink = function(){
     this.setState({ cor: 'green' });
     this.setState({ visivel: 'hidden' });
@@ -61,14 +66,26 @@ class SinglePlayerGame extends React.Component {
       this.setState({ cor: 'white' });
     }, 200)
   }.bind(this)
+  back = function(){
+    window.location.href = '/'
+  }
   render() {
     
     return (  
       <>
         <main style={{background: this.state.cor}} className='SinglePlayerGame'>
-            <Player></Player>
-            <IndicadorClique  blink={this.blink} visivel={this.state.visivel}></IndicadorClique>
-            Você tem: {this.state.pontos} pontos
+          <header>
+            <button onClick={this.back}> b</button>
+            <h1>{this.formatarNumero(this.state.pontos)}</h1>
+             <img src={sprite} alt="" />
+
+          </header>
+          <section className='GameArea'>
+          <Player></Player>
+          <IndicadorClique  blink={this.blink} visivel={this.state.visivel}></IndicadorClique>
+
+          </section>
+
         </main>
       </>
     )
