@@ -3,7 +3,7 @@ import './StartScreen.css'
 export default function StartScreen(props) {
 
   let startGame = function(){
-    window.location.href = '/singleplayer'
+    window.location.href = '/SinglePlayer/'
   }
 
   return (

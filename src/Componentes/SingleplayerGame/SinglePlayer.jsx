@@ -121,13 +121,14 @@ class SinglePlayerGame extends Component {
     return str;
   }
   back() {
-    window.location.href = '/';
+    window.location.href = './';
   }
-
   render() {
     return (
       <main  className='SinglePlayerGame'>
-        <faseSelection/>
+        <FaseSelection 
+        
+        fase={this.props.fase} />
         <header>
           <section>
           <button onClick={this.back}>←</button>

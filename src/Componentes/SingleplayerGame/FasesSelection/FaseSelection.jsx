@@ -5,9 +5,14 @@ function goTo( fase){
         window.location.href = '/SinglePlayer/fase'+fase;
     
 }
-export function FaseSelection() {
+export function FaseSelection( props) {
+    console.log(props);
+    let _visibility= 'hidden'
+    if(props.fase === 0){
+        _visibility = 'visible';
+    }
     return (
-        <ol className = 'paginaSelecao'>
+        <ol className = 'paginaSelecao' style={{visibility:_visibility}}>
             <li>
                 <div className = 'seletorDeFase' onClick={ () => goTo(1)}></div>
                 <h2>Fase 1</h2>
