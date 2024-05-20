@@ -9,7 +9,7 @@ import getFase from '../../Fases/Fases';
 function IndicadorClique(props) {
   
   return (
-    <div style={{ visibility: props.visivel, backgroundColor: props.cor }} onClick={props.blink} className='IndicadorVisual'>
+    <div style={{ visibility: props.visivel, backgroundColor: props.cor }} onClick={props.click} className='IndicadorVisual'>
     </div>
   );
 }
@@ -26,7 +26,7 @@ class SinglePlayerGame extends Component {
       botoesVisibility: ['hidden','visible','hidden'] ,
       botoesColor :['green','green','green'] }
 
-    this.blink = this.blink.bind(this);
+    this.click = this.click.bind(this);
     this.back = this.back.bind(this);
   }
 
@@ -58,7 +58,7 @@ class SinglePlayerGame extends Component {
         
           
        
-    }, 1000);
+    }, 2000);
   }
   componentDidMount() {
     console.log('mounted');
@@ -72,7 +72,7 @@ class SinglePlayerGame extends Component {
     return numero.toString().padStart(3, '0');
   }
 
-  blink(event) {
+  click(event) {
     let botao = event.target;
 
     if(this.state.start === false){
@@ -88,20 +88,14 @@ class SinglePlayerGame extends Component {
     if(botao.style.backgroundColor === 'green'){
       console.log('acertou');
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
-      return;
     }
 
     window.setTimeout(() => {
       this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
     },500)
-    
-    
-
-
-
   }
 
-  back(  ) {
+  back() {
     window.location.href = '/';
   }
 
@@ -120,9 +114,9 @@ class SinglePlayerGame extends Component {
 
           </section>
           <section className='GameControls'>  
-            <IndicadorClique blink={this.blink} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
-            <IndicadorClique blink={this.blink} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
-            <IndicadorClique blink={this.blink} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[0]} />
+            <IndicadorClique click={this.click} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
+            <IndicadorClique click={this.click} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
+            <IndicadorClique click={this.click} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[0]} />
           </section>
         </section>
         <audio  id = 'audio' src={michael} />

@@ -39,16 +39,15 @@ class Player extends React.Component {
           p.classList.add('alert')
           setTimeout(()=>{
             p.classList.remove('alert')
-          },1010)
+          },500)
       }
-
       if(this.props.pula && !this.lock){
         this.lock = true;
         p.classList.add('jump')
         setTimeout(()=>{
           p.classList.remove('jump')
           this.lock = false
-        },1010)
+        },500)
       }
       
       
