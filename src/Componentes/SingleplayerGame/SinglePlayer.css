@@ -35,7 +35,6 @@
     
 }
 .GameArea .Game{
-    display: block;
     background-color: white;
     border: 10px solid black;
 
@@ -51,6 +50,14 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .GameArea .GameControls{
