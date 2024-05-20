@@ -2,7 +2,8 @@ import { useId, useState } from 'react'
 import './Player.css'
 import sprite from '../../../Assets/dancing2.gif'
 import morre from '../../../Assets/caindo.gif'
-
+import seguradoras from '../../../Assets/2girls.png'
+import pulando from '../../../Assets/batecorda.gif'
 
 
 import React from 'react';
@@ -16,10 +17,19 @@ class Player extends React.Component {
     
   }
   dieonce = false;
-  
+  baterCorda(){
+    let x = document.querySelector('#y')
+    x.innerHTML=''
+    p.innerHTML=''
+    let img2 = document.createElement('img')
+    img2.src = './'+pulando
+    x.appendChild(img2)
+  }
   animate(anim){
     let p =document.querySelector('#x')
-    p.innerHTML=''
+    
+    p.innerHTML = ''
+
     let img = document.createElement('img')
     let url = "./.."+anim;
     let cleanUrl = url.split('?')[0];
@@ -68,13 +78,16 @@ class Player extends React.Component {
       this.animate(sprite)
 
     },800)
-   
+    
     this.animate(sprite)    
   }
   render() {
     
     return (  
         <>
+        <div id='y' className='Seguradoras'>
+          <img src={seguradoras} alt="seguradoras" />
+        </div>
         <div id='x' className='Player'>
           <img >
           

@@ -1,5 +1,7 @@
 .Player{
     position: relative;
+    float:left;
+
     width: 30%;
     max-width: 150px;
     -webkit-user-select: none; /* Safari */        
@@ -7,12 +9,13 @@
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 
-    top:  98%;
+    top:  0%;
     left: 50%;
-    transform: translate(-50%, -100%); ;
+    transform: translate(-50%,calc(-100% - 0px)); ;
     animation: blink 0.8s linear ;
 }
 .Player img {
+
     width: 100%;
     height: 100%;
     mix-blend-mode: multiply;
@@ -39,6 +42,26 @@
 }
 .Player img {
     width: 100%;
+}
+.Seguradoras {
+    float:right;
+    width: 100%;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+
+    top:  0;
+    left: 50%;
+    animation: blink 0.8s linear ;
+}
+.Seguradoras img {
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    background: none;
+    background-size: cover;
+    background-position: center;
 }
 
 /* Define a animação */

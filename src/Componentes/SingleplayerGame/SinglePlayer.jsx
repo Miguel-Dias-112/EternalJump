@@ -7,9 +7,15 @@ import getFase from '../../Data/Fases';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
 
 function IndicadorClique(props) {
-  
+  if (props.longo === true) {
+    return (
+      <div style={{ visibility: props.visivel,  backgroundColor: props.cor }} onClick={props.click} className='IndicadorVisual longo'>
+        START
+      </div>
+    );
+  }
   return (
-    <div style={{ visibility: props.visivel, backgroundColor: props.cor }} onClick={props.click} className='IndicadorVisual'>
+    <div style={{ visibility: props.visivel,  backgroundColor: props.cor }} onClick={props.click} className='IndicadorVisual'>
     </div>
   );
 }
@@ -80,12 +86,14 @@ class SinglePlayerGame extends Component {
 
   click(event) {
     let botao = event.target;
-
+    
     if(this.state.start === false){
       this.start();
       let audio = document.getElementById('audio2');
       audio.play();
       this.setState({ start: true });
+      botao.innerHTML = ""
+      botao.classList.remove("longo")
     }
     if(botao.style.backgroundColor === 'lightcoral'){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'] });
@@ -133,9 +141,7 @@ class SinglePlayerGame extends Component {
           <section>
           <button onClick={this.back}>←</button>
 
-          </section>
-          <section>
-            
+       
           </section>
           <section> 
             <h1>{this.showLifeBar() }
@@ -146,12 +152,13 @@ class SinglePlayerGame extends Component {
         <section className='GameArea'>
           <section className='Game'>
             <div className='GameBackground'></div>
+            
             <Player pula={this.state.pula} vidas ={this.state.vidas} contador={this.state.contadorTempo} acerto={this.state.acerto}/>
 
           </section>
           <section className='GameControls'>  
             <IndicadorClique click={this.click} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
-            <IndicadorClique click={this.click} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
+            <IndicadorClique  click={this.click} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
             <IndicadorClique click={this.click} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
           </section>
         </section>

@@ -16,7 +16,7 @@
     align-content: center;
 
     background: #85e1fd21;
-    grid-template-rows: 60px 1fr;
+    grid-template-rows: 60px calc(100vh - 60px);
     grid-template-columns: 1fr;
 }
 .GameArea{
@@ -92,27 +92,30 @@
 .SinglePlayerGame header section h1{
     margin: 0%;
     padding: 0%;
+    gap: 5px;
     font-size: large;
     align-self: center;
     justify-self: flex-end;
 }
 .SinglePlayerGame header button{
     align-self: center;
-    max-width: 50px;
     grid-row: 1;
     grid-column: 1;
     mix-blend-mode: multiply;
-    width: 50%;
-    height: 50%;
+    width: 150px;
+    height: 80%;
     font-size: 2em;
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:     #000000;
     border-radius: 10px;
-    background: r;
-    border: none;
+    background: rgba(172, 255, 47, 0.664);
+    border: 5px solid black;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+
 }
 .IndicadorVisual{
     width: 50px;
@@ -124,3 +127,8 @@
     justify-content: center;
     align-items: center;
 }
+ .longo{
+    width: 200px;
+  
+}
+
