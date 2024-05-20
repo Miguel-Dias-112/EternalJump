@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './SinglePlayer.css';
 import Player from './Player/Player';
-import sprite from '../../Assets/sprite.png';
 import michael from '../../Sons/michael.mp3';
 import musica from '../../Sons/musica8bitSemCopyRight.mp3';
 import getFase from '../../Data/Fases';
@@ -34,32 +33,38 @@ class SinglePlayerGame extends Component {
 
   start(){
 
-    this.interval = setInterval( () => {
+    const TimeLine = getFase(this.props.fase).intervalos  // array de marc temporal
+  
+   
+    
 
-      const intervalo = getFase( this.props.fase ).intervalos // array com a sequencia de botoões
+     this.interval = setInterval( () => {
 
-        this.setState({ contadorTempo: this.state.contadorTempo + 1 });
-        let contador = this.state.contadorTempo;
+     
 
-        const botoes = intervalo[contador];
-        let visivel = this.state.botoesVisibility;
-        let cor = this.state.botoesColor;
-        botoes.forEach((botão, index) => {
-            if (botão === 1) {
-              visivel[index] = 'visible';
-              cor[index] = 'lightcoral';
-            } else if (botão === 2) {
-              visivel[index] = 'visible';
-              cor[index] = 'rgba(172, 255, 47, 0.664)';
-            } else {
-              visivel[index] = 'hidden';
-            }
-        });
-        this.setState({ botoesVisibility: visivel, botoesColor: cor });
-        
+       const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
+         this.setState({ contadorTempo: this.state.contadorTempo + 1 });
+         let contador = this.state.contadorTempo
+         const botoes = intervalo[contador];
+         console.log(botoes);
+         let visivel = this.state.botoesVisibility;
+         let cor = this.state.botoesColor;
+         botoes.forEach((botão, index) => {
+             if (botão === 1) {
+               visivel[index] = 'visible';
+               cor[index] = 'lightcoral';
+             } else if (botão === 2) {
+               visivel[index] = 'visible';
+               cor[index] = 'rgba(172, 255, 47, 0.664)';
+             } else {
+               visivel[index] = 'hidden';
+             }
+         });
+         this.setState({ botoesVisibility: visivel, botoesColor: cor })   
+    
           
        
-    }, 2000);
+     },100);
   }
   componentDidMount() {
     console.log('mounted');
@@ -146,7 +151,7 @@ class SinglePlayerGame extends Component {
           <section className='GameControls'>  
             <IndicadorClique click={this.click} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
             <IndicadorClique click={this.click} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
-            <IndicadorClique click={this.click} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[0]} />
+            <IndicadorClique click={this.click} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
           </section>
         </section>
         <audio  id = 'audio' src={michael} />
