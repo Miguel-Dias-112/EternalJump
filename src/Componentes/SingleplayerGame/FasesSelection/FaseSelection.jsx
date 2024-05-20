@@ -11,13 +11,13 @@ export function FaseSelection( props) {
         _display = 'none';
     }
     return (
-        <div className = 'paginaSelecao'>
+        <div style={{display:_display}} className = 'paginaSelecao'>
             <header>
                 <button onClick={()=>{window.location.href = '../'}}>
                 
                 </button>
             </header>
-            <ol  style={{display:_display}}>
+            <ol  >
                 <li>
                     <div className = 'seletorDeFase' onClick={ () => goTo(1)}></div>
                     <h2>Fase 1</h2>
