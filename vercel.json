@@ -1,11 +1,8 @@
 {
-    "routes": [
-      { "src": "/", "dest": "/" },
-      { "src": "/SinglePlayer", "dest": "/" },
-      { "src": "/SinglePlayer/fase1", "dest": "/" },
-      { "src": "/SinglePlayer/fase2", "dest": "/" },
-      { "src": "/SinglePlayer/fase3", "dest": "/" }
-
-    ]
-  }
-  
+  "routes": [
+    {
+      "src": "/[^.]+",
+      "dest": "/"
+    }
+  ]
+}
