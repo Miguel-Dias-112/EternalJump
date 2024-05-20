@@ -93,13 +93,28 @@ class SinglePlayerGame extends Component {
       let audio = document.getElementById('audio');
       audio.play();
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
+      return;
     }
 
     window.setTimeout(() => {
       this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
     },500)
-  }
+    
+    
 
+
+
+  }
+ showLifeBar() {
+    let str = "";
+    for (let i = 0; i < this.state.vidas; i++) {
+      str += '❤️';
+    }
+    for (let i = 0; i < 5 - this.state.vidas ; i++) {
+      str+= '🖤';
+    }
+    return str;
+  }
   back() {
     window.location.href = '/';
   }
