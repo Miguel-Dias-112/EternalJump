@@ -14,7 +14,7 @@ class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = { contadorTempo: 0, cor:'white',visivel:'hidden'};
-
+    
   }
   dieonce = false;
   
@@ -48,7 +48,7 @@ class Player extends React.Component {
         setTimeout(()=>{
           p.classList.remove('jump')
           this.lock = false
-        },1000)
+        },1010)
       }
       
       

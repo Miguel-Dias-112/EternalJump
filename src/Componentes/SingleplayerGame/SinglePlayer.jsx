@@ -24,7 +24,7 @@ class SinglePlayerGame extends Component {
       pula: false, 
       acerto:true,
       botoesVisibility: ['hidden','visible','hidden'] ,
-      botoesColor :['green','green','green'] }
+      botoesColor :['rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)'] }
 
     this.blink = this.blink.bind(this);
     this.back = this.back.bind(this);
@@ -46,10 +46,10 @@ class SinglePlayerGame extends Component {
         botoes.forEach((botão, index) => {
             if (botão === 1) {
               visivel[index] = 'visible';
-              cor[index] = 'red';
+              cor[index] = 'lightcoral';
             } else if (botão === 2) {
               visivel[index] = 'visible';
-              cor[index] = 'green';
+              cor[index] = 'rgba(172, 255, 47, 0.664)';
             } else {
               visivel[index] = 'hidden';
             }
@@ -68,8 +68,16 @@ class SinglePlayerGame extends Component {
     clearInterval(this.interval);
   }
 
-  formatarNumero(numero) {
-    return numero.toString().padStart(3, '0');
+  showLifeBar() {
+    let str = "";
+    for (let i = 0; i < this.state.vidas; i++) {
+      str += '❤️';
+    }
+    for (let i = 0; i < 5 - this.state.vidas ; i++) {
+      str+= '🖤';
+    }
+    return str;
+    
   }
 
   blink(event) {
@@ -83,6 +91,9 @@ class SinglePlayerGame extends Component {
     }
     if(botao.style.backgroundColor === 'red'){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'] });
+      window.setTimeout(() => {
+        this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
+      },1100)
       console.log('errou',this.state.vidas);
     }
     if(botao.style.backgroundColor === 'green'){
@@ -90,12 +101,13 @@ class SinglePlayerGame extends Component {
       let audio = document.getElementById('audio');
       audio.play();
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
+      window.setTimeout(() => {
+        this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
+      },1100)
       return;
     }
 
-    window.setTimeout(() => {
-      this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
-    },500)
+ 
     
     
 
@@ -111,8 +123,17 @@ class SinglePlayerGame extends Component {
     return (
       <main  className='SinglePlayerGame'>
         <header>
+          <section>
           <button onClick={this.back}>←</button>
-          <h1>{this.formatarNumero(this.state.pontos)}</h1>
+
+          </section>
+          <section>
+            
+          </section>
+          <section> 
+            <h1>{this.showLifeBar() }
+            </h1>
+          </section>
           {/* <img src={sprite} alt="" /> */}
         </header>
         <section className='GameArea'>
