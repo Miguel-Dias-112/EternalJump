@@ -4,7 +4,7 @@ import Player from './Player/Player';
 import sprite from '../../Assets/sprite.png';
 import michael from '../../Sons/michael.mp3';
 import musica from '../../Sons/musica8bitSemCopyRight.mp3';
-import getFase from '../../Fases/Fases';
+import getFase from '../../Data/Fases';
 
 function IndicadorClique(props) {
   
@@ -87,6 +87,8 @@ class SinglePlayerGame extends Component {
     }
     if(botao.style.backgroundColor === 'green'){
       console.log('acertou');
+      let audio = document.getElementById('audio');
+      audio.play();
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
     }
 
