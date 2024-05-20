@@ -20,6 +20,9 @@ function App() {
         <Routes>
           <Route path="/" index element={<StartScreen />} />
           <Route path="/singleplayer" element={<SinglePlayerGame />} />
+          <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={1}/>} />
+          <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={2}/>} />
+
         </Routes>
       </BrowserRouter>
     </>

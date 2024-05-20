@@ -16,7 +16,6 @@
     align-content: center;
 
     background: #85e1fd21;
-    
     grid-template-rows: 60px 1fr;
     grid-template-columns: 1fr;
 }

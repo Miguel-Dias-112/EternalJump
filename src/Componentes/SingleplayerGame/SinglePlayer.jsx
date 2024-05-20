@@ -5,6 +5,7 @@ import sprite from '../../Assets/sprite.png';
 import michael from '../../Sons/michael.mp3';
 import musica from '../../Sons/musica8bitSemCopyRight.mp3';
 import getFase from '../../Data/Fases';
+import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
 
 function IndicadorClique(props) {
   
@@ -35,7 +36,7 @@ class SinglePlayerGame extends Component {
 
     this.interval = setInterval( () => {
 
-      const intervalo = getFase(1).intervalos // array com a sequencia de botoões
+      const intervalo = getFase( this.props.fase ).intervalos // array com a sequencia de botoões
 
         this.setState({ contadorTempo: this.state.contadorTempo + 1 });
         let contador = this.state.contadorTempo;
@@ -121,6 +122,7 @@ class SinglePlayerGame extends Component {
   render() {
     return (
       <main  className='SinglePlayerGame'>
+        <faseSelection/>
         <header>
           <section>
           <button onClick={this.back}>←</button>
@@ -154,5 +156,6 @@ class SinglePlayerGame extends Component {
     );
   }
 }
+
 
 export default SinglePlayerGame;
