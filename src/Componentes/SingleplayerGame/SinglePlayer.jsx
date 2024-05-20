@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SinglePlayer.css';
 import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
-import musica from '../../Sons/musica8bitSemCopyRight.mp3';
+import musicaf1 from '../../Sons/musica8bitSemCopyRight.mp3';
 import getFase from '../../Data/Fases';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
 
@@ -88,6 +88,31 @@ class SinglePlayerGame extends Component {
     return numero.toString().padStart(3, '0');
   }
 
+  selecionarMusica(fase) {
+    switch (fase) {
+      case 1:
+        return musicaf1;
+      //case 2:
+      //  return musicaf2;
+      //case 3:
+      //  return musicaf3;
+      //case 4:
+      //  return musicaf4;
+      //case 5:
+      //  return musicaf5;
+      //case 6:
+      //  return musicaf6;
+      //case 7:
+      //  return musicaf7;
+      //case 8:
+      //  return musicaf8;
+      //case 9:
+      //  return musicaf9;
+      //case 10:
+      //  return musicaf10;
+    }
+  }
+
   click(event, tipo) {
     let botao = event.target;
     
@@ -168,7 +193,7 @@ class SinglePlayerGame extends Component {
           </section>
         </section>
         <audio  id = 'audio' src={michael} />
-        <audio  id = 'audio2' src={musica} />
+        <audio  id = 'audio2' src={this.selecionarMusica(this.props.fase)} />
 
       </main>
     );
