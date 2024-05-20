@@ -81,19 +81,18 @@ class SinglePlayerGame extends Component {
       audio.play();
       this.setState({ start: true });
     }
-    if(botao.style.backgroundColor === 'red'){
+    if(botao.style.backgroundColor === 'lightcoral'){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'] });
       window.setTimeout(() => {
         this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
       },1100)
       console.log('errou',this.state.vidas);
     }
-    if(botao.style.backgroundColor === 'green'){
+    if(botao.style.backgroundColor === 'rgba(172, 255, 47, 0.664)'){
       console.log('acertou');
       let audio = document.getElementById('audio');
       audio.play();
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
-      return;
     }
 
     window.setTimeout(() => {

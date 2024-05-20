@@ -32,7 +32,10 @@ class Player extends React.Component {
       if(this.dieonce){
         return
       }
+      console.log(this.props)
       if(this.props.vidas === 0){
+        this.animate(morre)
+
         this.dieonce = true;
       }
       if(this.props.acerto === false){
@@ -41,6 +44,7 @@ class Player extends React.Component {
             p.classList.remove('alert')
           },500)
       }
+
       if(this.props.pula && !this.lock){
         this.lock = true;
         p.classList.add('jump')
@@ -55,8 +59,6 @@ class Player extends React.Component {
   componentDidMount() {
     let  x = window.setInterval(()=>{
       if(this.dieonce){
-        this.animate(morre)
-
         clearInterval(x)
         return
       }
