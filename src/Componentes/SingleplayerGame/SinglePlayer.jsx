@@ -159,7 +159,7 @@ class SinglePlayerGame extends Component {
     return str;
   }
   back() {
-    window.location.href = './';
+    window.location.href = '../SinglePlayer/';
   }
   render() {
     return (
@@ -181,15 +181,19 @@ class SinglePlayerGame extends Component {
         </header>
         <section className='GameArea'>
           <section className='Game'>
-            <div className='GameBackground'></div>
             
             <Player pula={this.state.pula} vidas ={this.state.vidas} contador={this.state.contadorTempo} acerto={this.state.acerto}/>
 
           </section>
+
           <section className='GameControls'>  
-            <IndicadorClique click={(e)=> this.click(e,this.state.botoesType[0])} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
-            <IndicadorClique   click={(e)=> this.click(e,this.state.botoesType[1])} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
-            <IndicadorClique  click={(e)=> this.click(e,this.state.botoesType[2])} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
+            <h1>{this.formatarNumero(this.state.pontos)}</h1>
+            <section className='GameControlsButtons'>
+              <IndicadorClique click={(e)=> this.click(e,this.state.botoesType[0])} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
+              <IndicadorClique   click={(e)=> this.click(e,this.state.botoesType[1])} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
+              <IndicadorClique  click={(e)=> this.click(e,this.state.botoesType[2])} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
+            </section>
+            
           </section>
         </section>
         <audio  id = 'audio' src={michael} />

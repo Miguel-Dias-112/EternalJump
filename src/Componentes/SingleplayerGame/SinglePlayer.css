@@ -63,11 +63,26 @@
 .GameArea .GameControls{
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto    ;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.GameArea .GameControls h1{
+    margin: 0%;
+    font-size: 15px;
+    padding: 0%;
+}
+.GameControlsButtons{
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     width: 100%;
-    height: 100%;
+    height: auto;
     flex-wrap: wrap;
+
 }
 .SinglePlayerGame header{
     

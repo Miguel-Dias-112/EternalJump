@@ -7,21 +7,34 @@
     align-items: center;
     width: 100%;
     height: auto;   
-    background-color: #85e1fd;
+    background-color: white;
     z-index: 1;
     margin: 0;
     top: 0;
     padding: 0%;
 }
-
-.paginaSelecao li{
+.paginaSelecao header{
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 10px;
+    
+}
+.paginaSelecao header button{
+    margin-left: 40px;
+    background-color: rgb(2, 182, 182);
+}
+.paginaSelecao ol li{
     margin-top: 50px;
+    
     flex-direction: column;
     list-style-type: none;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
+;
 }
 
 .seletorDeFase {
@@ -32,6 +45,6 @@
     background-size: cover;
     background-position: center;
     border-radius: 5%;
-    border: 10px solid black;
+    border: 10px solid #00c3ff;
     background-color: #00c3ff8e;
 }
