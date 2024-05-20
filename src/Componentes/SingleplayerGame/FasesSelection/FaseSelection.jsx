@@ -6,7 +6,6 @@ function goTo( fase){
     
 }
 export function FaseSelection( props) {
-    console.log(props);
     let _display;
     if(props.fase !== 0){
         _display = 'none';

@@ -28,7 +28,7 @@ class Player extends React.Component {
       let cleanUrl = url.split('?')[0];
       setTimeout(()=>{
         x.src= cleanUrl
-      },100 *i)
+      },500 *i)
     }
 
   }
@@ -47,12 +47,11 @@ class Player extends React.Component {
 
   }
   componentDidUpdate() {
-      console.log('teste')
       let p =document.querySelector('#x')
+      
       if(this.dieonce){
         return
       }
-      console.log(this.props)
       if(this.props.vidas === 0){
         this.animate(morre)
 
@@ -64,8 +63,9 @@ class Player extends React.Component {
             p.classList.remove('alert')
           },500)
       }
-
+      
       if(this.props.pula && !this.lock){
+        
         this.lock = true;
         p.classList.add('jump')
         this.baterCorda()

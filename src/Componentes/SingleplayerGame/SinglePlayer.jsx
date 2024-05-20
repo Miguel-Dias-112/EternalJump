@@ -25,18 +25,19 @@ class SinglePlayerGame extends Component {
     super(props);
     this.state = { 
       vidas:5,
-      start: false,
+      
       contadorTempo: 0, pontos: 0,
       pula: false, 
       acerto:true,
       botoesVisibility: ['hidden','visible','hidden'] ,
+      botoesType: [1,2,1],
       botoesColor :['rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)'] }
 
     this.click = this.click.bind(this);
     this.back = this.back.bind(this);
   }
 
-
+  começou= false
   start(){
 
     const TimeLine = getFase(this.props.fase).intervalos  // array de marc temporal
@@ -52,13 +53,16 @@ class SinglePlayerGame extends Component {
          this.setState({ contadorTempo: this.state.contadorTempo + 1 });
          let contador = this.state.contadorTempo
          const botoes = intervalo[contador];
-         console.log(botoes);
          let visivel = this.state.botoesVisibility;
+         
+         this.setState({ botoesType: botoes });
          let cor = this.state.botoesColor;
          botoes.forEach((botão, index) => {
              if (botão === 1) {
                visivel[index] = 'visible';
                cor[index] = 'lightcoral';
+
+
              } else if (botão === 2) {
                visivel[index] = 'visible';
                cor[index] = 'rgba(172, 255, 47, 0.664)';
@@ -84,25 +88,26 @@ class SinglePlayerGame extends Component {
     return numero.toString().padStart(3, '0');
   }
 
-  click(event) {
+  click(event, tipo) {
     let botao = event.target;
     
-    if(this.state.start === false){
+    if(this.começou === false){
       this.start();
+      this.começou = true;
       let audio = document.getElementById('audio2');
       audio.play();
-      this.setState({ start: true });
       botao.innerHTML = ""
       botao.classList.remove("longo")
     }
-    if(botao.style.backgroundColor === 'lightcoral'){
+    console.log('click',tipo)
+    if(tipo==1){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'] });
       window.setTimeout(() => {
         this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
       },1100)
       console.log('errou',this.state.vidas);
     }
-    if(botao.style.backgroundColor === 'rgba(172, 255, 47, 0.664)'){
+    if(tipo==2){
       console.log('acertou');
       let audio = document.getElementById('audio');
       audio.play();
@@ -157,9 +162,9 @@ class SinglePlayerGame extends Component {
 
           </section>
           <section className='GameControls'>  
-            <IndicadorClique click={this.click} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
-            <IndicadorClique  click={this.click} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
-            <IndicadorClique click={this.click} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
+            <IndicadorClique click={(e)=> this.click(e,this.state.botoesType[0])} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
+            <IndicadorClique   click={(e)=> this.click(e,this.state.botoesType[1])} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
+            <IndicadorClique  click={(e)=> this.click(e,this.state.botoesType[2])} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
           </section>
         </section>
         <audio  id = 'audio' src={michael} />
