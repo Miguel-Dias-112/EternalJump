@@ -1,7 +1,6 @@
 import { useId, useState } from 'react'
 import './Player.css'
 import sprite from '../../../Assets/dancing2.gif'
-import alert from '../../../Assets/Alert.png'
 import morre from '../../../Assets/caindo.gif'
 
 
@@ -22,8 +21,12 @@ class Player extends React.Component {
     let p =document.querySelector('#x')
     p.innerHTML=''
     let img = document.createElement('img')
+    let url = "./.."+anim;
+    let cleanUrl = url.split('?')[0];
+
+    img.src = cleanUrl
     p.appendChild(img)
-    img.src = './'+anim
+
 
   }
   componentDidUpdate() {

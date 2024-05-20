@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './SinglePlayer.css';
 import Player from './Player/Player';
-import sprite from '../../Assets/sprite.png';
 import michael from '../../Sons/michael.mp3';
 import musica from '../../Sons/musica8bitSemCopyRight.mp3';
 import getFase from '../../Data/Fases';
@@ -35,7 +34,7 @@ class SinglePlayerGame extends Component {
 
     this.interval = setInterval( () => {
 
-      const intervalo = getFase(1).intervalos // array com a sequencia de botoões
+      const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoões
 
         this.setState({ contadorTempo: this.state.contadorTempo + 1 });
         let contador = this.state.contadorTempo;
