@@ -7,12 +7,12 @@ function goTo( fase){
 }
 export function FaseSelection( props) {
     console.log(props);
-    let _visibility= 'hidden'
-    if(props.fase === 0){
-        _visibility = 'visible';
+    let _display;
+    if(props.fase !== 0){
+        _display = 'none';
     }
     return (
-        <ol className = 'paginaSelecao' style={{visibility:_visibility}}>
+        <ol className = 'paginaSelecao' style={{display:_display}}>
             <li>
                 <div className = 'seletorDeFase' onClick={ () => goTo(1)}></div>
                 <h2>Fase 1</h2>

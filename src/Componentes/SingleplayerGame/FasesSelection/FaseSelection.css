@@ -1,15 +1,21 @@
 .paginaSelecao {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #85e1fd;
     position: absolute;
+
+
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: auto;   
+    background-color: #85e1fd;
     z-index: 1;
+    margin: 0;
+    top: 0;
+    padding: 0%;
 }
 
 .paginaSelecao li{
+    margin-top: 50px;
     flex-direction: column;
     list-style-type: none;
     display: flex;
