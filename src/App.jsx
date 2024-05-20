@@ -9,14 +9,14 @@ import {
   Routes,
   Route,
   useRoutes,
-  BrowserRouter,
+  MemoryRouter,
 } from "react-router-dom";
 function App() {
   
 
   return (
     <>
-      <BrowserRouter>
+      <MemoryRouter>
         <Routes>
           <Route path="/" index element={<StartScreen />} />
           <Route path="/singleplayer/" element={<SinglePlayerGame  fase={0}/>} />
@@ -24,7 +24,7 @@ function App() {
           <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={2}/>} />
 
         </Routes>
-      </BrowserRouter>
+      </MemoryRouter>
     </>
   )
 }
