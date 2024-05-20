@@ -3,8 +3,11 @@ import './Player.css'
 import sprite from '../../../Assets/dancing2.gif'
 import morre from '../../../Assets/caindo.gif'
 import seguradoras from '../../../Assets/2girls.png'
-import pulando from '../../../Assets/batecorda.gif'
 
+import pulando1 from '../../../Assets/batercorda/1.png'
+import pulando2 from '../../../Assets/batercorda/2.png'
+import pulando3 from '../../../Assets/batercorda/3.png'
+import pulando4 from '../../../Assets/batercorda/4.png'
 
 import React from 'react';
 
@@ -19,11 +22,15 @@ class Player extends React.Component {
   dieonce = false;
   baterCorda(){
     let x = document.querySelector('#y')
-    x.innerHTML=''
-    p.innerHTML=''
-    let img2 = document.createElement('img')
-    img2.src = './'+pulando
-    x.appendChild(img2)
+    let pulando = [pulando1,pulando2,pulando3,pulando4]
+    for(let i = 1; i < 4; i++){
+      let url = "./.."+pulando[i];
+      let cleanUrl = url.split('?')[0];
+      setTimeout(()=>{
+        x.src= cleanUrl
+      },100 *i)
+    }
+
   }
   animate(anim){
     let p =document.querySelector('#x')
@@ -61,6 +68,7 @@ class Player extends React.Component {
       if(this.props.pula && !this.lock){
         this.lock = true;
         p.classList.add('jump')
+        this.baterCorda()
         setTimeout(()=>{
           p.classList.remove('jump')
           this.lock = false
@@ -78,15 +86,15 @@ class Player extends React.Component {
       this.animate(sprite)
 
     },800)
-    
+    this.baterCorda()
     this.animate(sprite)    
   }
   render() {
     
     return (  
         <>
-        <div id='y' className='Seguradoras'>
-          <img src={seguradoras} alt="seguradoras" />
+        <div className='Seguradoras'>
+          <img id='y'  src={seguradoras} alt="seguradoras" />
         </div>
         <div id='x' className='Player'>
           <img >
