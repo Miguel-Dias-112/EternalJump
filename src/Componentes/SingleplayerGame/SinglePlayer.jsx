@@ -31,10 +31,29 @@ class SinglePlayerGame extends Component {
       acerto:true,
       botoesVisibility: ['hidden','visible','hidden'] ,
       botoesType: [1,2,1],
-      botoesColor :['rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)'] }
+      botoesColor :['rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)'],
+      jogada: false,
+    }
 
     this.click = this.click.bind(this);
     this.back = this.back.bind(this);
+  }
+
+  checaJogada(but, oldBut)
+  {
+    console.log('O estado anterior eh: ' + oldBut);
+    console.log('O botoes eh: ' + but);
+    console.log('O valor da jogada eh: ' + this.state.jogada);
+
+    if(!(but.every((val,index) => val === oldBut[index])) && !(but.every(val => val === 1)))
+    {   
+      if( !this.state.jogada)
+        {
+          this.setState({ vidas: this.state.vidas - 1 });
+        }
+      
+      this.setState({ jogada: false });
+    }
   }
 
   começou= false
@@ -44,37 +63,40 @@ class SinglePlayerGame extends Component {
   
    
     
-
-     this.interval = setInterval( () => {
-
-     
-
-       const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
-         this.setState({ contadorTempo: this.state.contadorTempo + 1 });
-         let contador = this.state.contadorTempo
-         const botoes = intervalo[contador];
-         let visivel = this.state.botoesVisibility;
-         
-         this.setState({ botoesType: botoes });
-         let cor = this.state.botoesColor;
-         botoes.forEach((botão, index) => {
-             if (botão === 1) {
-               visivel[index] = 'visible';
-               cor[index] = 'lightcoral';
-
-
-             } else if (botão === 2) {
-               visivel[index] = 'visible';
-               cor[index] = 'rgba(172, 255, 47, 0.664)';
-             } else {
-               visivel[index] = 'hidden';
-             }
-         });
-         this.setState({ botoesVisibility: visivel, botoesColor: cor })   
+    let prevTypes = [1,1,1];
     
+    this.interval = setInterval( () => {
+      
+      const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
+      this.setState({ contadorTempo: this.state.contadorTempo + 1 });
+      let contador = this.state.contadorTempo
+      const botoes = intervalo[contador];
+      let visivel = this.state.botoesVisibility;
+      
+      
+      this.setState({ botoesType: botoes });
+      let cor = this.state.botoesColor;
+      botoes.forEach((botão, index) => {
+        if (botão === 1) {
+          visivel[index] = 'visible';
+          cor[index] = 'lightcoral';
           
-       
-     },100);
+        } else if (botão === 2) {
+          visivel[index] = 'visible';
+          cor[index] = 'rgba(172, 255, 47, 0.664)';
+        } else {
+          visivel[index] = 'hidden';
+        }
+      });
+
+      this.setState({ botoesVisibility: visivel, botoesColor: cor })  
+
+      setTimeout( () => {
+        this.checaJogada(botoes, prevTypes);
+        prevTypes = botoes.slice();    
+      }, 1000)
+          
+      },125); //voltar p 100 dps teste
   }
   componentDidMount() {
     console.log('mounted');
@@ -126,28 +148,26 @@ class SinglePlayerGame extends Component {
     }
     console.log('click',tipo)
     if(tipo==1){
-      this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'] });
+      this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
       window.setTimeout(() => {
         this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
       },1100)
       console.log('errou',this.state.vidas);
     }
     if(tipo==2){
+      this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
       console.log('acertou');
       let audio = document.getElementById('audio');
       audio.play();
-      this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'] });
     }
 
     window.setTimeout(() => {
       this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
     },500)
-    
-    
-
-
 
   }
+
+
  showLifeBar() {
     let str = "";
     for (let i = 0; i < this.state.vidas; i++) {

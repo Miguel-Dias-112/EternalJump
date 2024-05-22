@@ -28,7 +28,7 @@ class Player extends React.Component {
       let cleanUrl = url.split('?')[0];
       setTimeout(()=>{
         x.src= cleanUrl
-      },200 *i)
+      },150 *i)
     }
 
   }

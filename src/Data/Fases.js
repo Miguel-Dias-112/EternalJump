@@ -1,5 +1,5 @@
 function inter(repetiçõeSS, padrão){
-    let tempo =  10*repetiçõeSS;
+    let tempo =  8*repetiçõeSS;
 
     let vetor = [];
     for(let i = 0; i < tempo; i++){
@@ -18,9 +18,6 @@ function descompacta(vetor){
 const fases ={
     1:{
         intervalos : []
-        .concat(inter(1, [1,1,1]))
-        .concat(inter(1, [1,2,1]))
-        .concat(inter(1, [1,1,1]))
         .concat(inter(1, [2,1,1]))
         .concat(inter(1, [1,1,1]))
         .concat(inter(1, [1,2,1]))
