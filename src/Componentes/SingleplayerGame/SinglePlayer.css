@@ -129,7 +129,7 @@
 .SinglePlayerGame header section{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     grid-column: 3;
     gap: 5px;
     width: 100%;
@@ -143,10 +143,10 @@
 .SinglePlayerGame header section h1{
     margin: 0%;
     padding: 0%;
-
+    padding-right: 10%;
     font-size: large;
-    align-self: center;
-    justify-self: flex-end;
+    text-align: center;
+
 }
 .SinglePlayerGame header button{
     align-self: center;
