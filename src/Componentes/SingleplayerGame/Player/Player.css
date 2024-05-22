@@ -2,7 +2,7 @@
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column: 2;
-    width: 60%;
+    width: 100%;
     height: 100%;
     -webkit-user-select: none;
     -moz-user-select: none; 
@@ -42,8 +42,9 @@
 }
 .Player canvas {
     filter: drop-shadow(0px 0px  10px rgb(0, 0, 0));
+    border: red 5px solid;
+
     width: 100%;
-    height: auto;
     align-self: flex-end;
     justify-self: flex-end;
 }
@@ -55,8 +56,9 @@
     grid-row-start: 3;
 
 
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 60%;
+    align-self: flex-end;
     -webkit-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none; 
@@ -66,7 +68,8 @@
 }
 .Seguradoras canvas {
     width: 100%;
-    height: 60%;
+    height: 100%;
+    border: aliceblue 5px solid;
     mix-blend-mode: multiply;
     background: none;
     background-size: cover;
