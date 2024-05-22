@@ -63,15 +63,15 @@ class Player extends React.Component {
     
   }
   componentDidUpdate() {
-    let p =document.querySelector('#x')
+    var canvas = document.querySelector('canvas');
     if(this.props.vidas === 0){
 
       this.dieonce = true;
     }
     if(this.props.acerto === false){
-        p.classList.add('alert')
+        canvas.classList.add('alert')
         setTimeout(()=>{
-          p.classList.remove('alert')
+          canvas.classList.remove('alert')
         },500)
     }
    
@@ -81,7 +81,7 @@ class Player extends React.Component {
   componentDidMount() {
 
 
-    const pulo = [pulando2,pulando2,pulando2,pulando3]
+    const pulo = [pulando1,pulando2,pulando2,pulando3]
     const idle = [idle1,idle2,idle1]
 
     var canvas = document.querySelector('canvas');

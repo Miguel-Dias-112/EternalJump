@@ -6,8 +6,7 @@
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
-
-
+    
     justify-self:center;
     align-self: flex-end;
     animation: blink 0.8s linear ;
@@ -41,6 +40,8 @@
 .Player canvas {
     border: 5px solid red;
     width: 100%;
+    z-index: -1;
+    
 }
 .Seguradoras {
 
