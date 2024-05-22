@@ -196,7 +196,7 @@ class SinglePlayerGame extends Component {
         <FaseSelection 
         
         fase={this.props.fase} />
-        <Lore click= {this.startClick}></Lore>
+        <Lore fase={this.props.fase} click= {this.startClick}></Lore>
         <header>
           <button onClick={this.back}>←</button>
 
