@@ -42,9 +42,9 @@ import React from 'react';
 class Player extends React.Component {
   cleanUrl(img){
     
-    // let url = "./.."+img;
- 
-    return img;
+    let url = "./.."+img;
+    console.log(img,url.split('?')[0])
+    return url.split('?')[0];
   }
   loadImages(array){
     let image = []
