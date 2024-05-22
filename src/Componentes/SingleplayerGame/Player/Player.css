@@ -1,14 +1,14 @@
 .Player{
     grid-row: 3;
     grid-column: 2;
-    width: 100%;
+    width: 60%;
     -webkit-user-select: none;
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
 
 
-    justify-self: flex-end;
+    justify-self:center;
     align-self: flex-end;
     animation: blink 0.8s linear ;
 }
@@ -31,14 +31,15 @@
         transform: translateY(0%); ;
     }
     40% {
-        transform: translateY(-50%); ;
+        transform: translateY(-80%); ;
     }
 
 }
 .jump {
     animation: jump 0.8s;
 }
-.Player img {
+.Player canvas {
+    border: 5px solid red;
     width: 100%;
 }
 .Seguradoras {

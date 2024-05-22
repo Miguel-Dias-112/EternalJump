@@ -1,105 +1,123 @@
 import { useId, useState } from 'react'
 import './Player.css'
-import sprite from '../../../Assets/dancing2.gif'
-import morre from '../../../Assets/caindo.gif'
-import seguradoras from '../../../Assets/2girls.png'
+import sprite from '../../../Assets/Raquel-Janaina-idle.gif'
 
-import pulando1 from '../../../Assets/batercorda/1.png'
-import pulando2 from '../../../Assets/batercorda/2.png'
-import pulando3 from '../../../Assets/batercorda/3.png'
-import pulando4 from '../../../Assets/batercorda/4.png'
+import pulando1 from '../../../Assets/AnimPulo/0.png'
+import pulando2 from '../../../Assets/AnimPulo/1.png'
+import pulando3 from '../../../Assets/AnimPulo/2.png'
+
+import idle1 from '../../../Assets/Idle/0.png'
+import idle2 from '../../../Assets/Idle/1.png'
 
 import React from 'react';
 
-
 class Player extends React.Component {
+  cleanUrl(img){
+    
+    let url = "./.."+img;
+    return url.split('?')[0];
+  }
+  loadImages(array){
+    let image = []
+    for (let i = 0; i < array.length; i++) {
+      image[i] = new Image();
+      image[i].src = this.cleanUrl(array[i]);
+    }
+    return image;
+  }
+  runAnims(c,images,fps){
+    console.log(images)
+    for(let i = 0; i < images.length; i++){
+     
+      setTimeout(()=>{
+      
+        c.clearRect(0,0,canvas.width,canvas.height);
+        c.drawImage(images[i],0,0,24,26);
+        i++;
+        if(i === images.length){
+          i = 0;
+        }
+      },fps*i)
+      
+    }
+   
+  }
+ 
   lock = false;
   constructor(props) {
     super(props);
     this.state = { contadorTempo: 0, cor:'white',visivel:'hidden'};
-    
   }
   dieonce = false;
   baterCorda(){
-    let x = document.querySelector('#y')
-    let pulando = [pulando1,pulando2,pulando3,pulando4]
-    for(let i = 1; i < 4; i++){
-      let url = "./.."+pulando[i];
-      let cleanUrl = url.split('?')[0];
-      setTimeout(()=>{
-        x.src= cleanUrl
-      },150 *i)
-    }
-
   }
-  animate(anim){
+  fisicaPulo(){
+ 
     let p =document.querySelector('#x')
+    this.lock = true;
+    p.classList.add('jump')
+    setTimeout(()=>{
+      p.classList.remove('jump')
+      this.lock = false
+    },500)
     
-    p.innerHTML = ''
-
-    let img = document.createElement('img')
-    let url = "./.."+anim;
-    let cleanUrl = url.split('?')[0];
-
-    img.src = cleanUrl
-    p.appendChild(img)
-
-
   }
   componentDidUpdate() {
-      let p =document.querySelector('#x')
-      
-      if(this.dieonce){
-        return
-      }
-      if(this.props.vidas === 0){
-        this.animate(morre)
+    let p =document.querySelector('#x')
+    if(this.props.vidas === 0){
 
-        this.dieonce = true;
-      }
-      if(this.props.acerto === false){
-          p.classList.add('alert')
-          setTimeout(()=>{
-            p.classList.remove('alert')
-          },500)
-      }
-      
-      if(this.props.pula && !this.lock){
-        
-        this.lock = true;
-        p.classList.add('jump')
-        this.baterCorda()
+      this.dieonce = true;
+    }
+    if(this.props.acerto === false){
+        p.classList.add('alert')
         setTimeout(()=>{
-          p.classList.remove('jump')
-          this.lock = false
+          p.classList.remove('alert')
         },500)
-      }
-      
+    }
+   
+
       
   }
   componentDidMount() {
-    let  x = window.setInterval(()=>{
-      if(this.dieonce){
-        clearInterval(x)
-        return
-      }
-      this.animate(sprite)
 
-    },800)
-    this.baterCorda()
-    this.animate(sprite)    
+
+    const pulo = [pulando2,pulando2,pulando2,pulando3]
+    const idle = [idle1,idle2,idle1]
+
+    var canvas = document.querySelector('canvas');
+    var c = canvas.getContext('2d');
+
+    canvas.width= 24;
+    canvas.height=26;
+
+    let imagensPulo = this.loadImages(pulo);
+    let imagesIdle = this.loadImages(idle);
+    this.runAnims(c,imagesIdle)
+
+    setInterval(()=>{
+      if(this.props.pula){
+        this.fisicaPulo()
+        this.runAnims(c,imagensPulo,100)
+      }
+      else{
+        this.runAnims(c,imagesIdle,100)
+
+      }
+    },500)
+    
+     
   }
   render() {
     
     return (  
         <>
         <div className='Seguradoras'>
-          <img id='y'  src={seguradoras} alt="seguradoras" />
+          <img id='y'  src alt="seguradoras" />
         </div>
         <div id='x' className='Player'>
-          <img >
+          <canvas id='canvas' >
           
-          </img>
+          </canvas>
           
         </div>
       </>
