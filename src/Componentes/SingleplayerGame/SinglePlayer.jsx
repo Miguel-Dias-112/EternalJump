@@ -5,7 +5,7 @@ import michael from '../../Sons/michael.mp3';
 import musicaf1 from '../../Sons/musica8bitSemCopyRight.mp3';
 import getFase from '../../Data/Fases';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
-
+import { Lore } from './Lore/Lore.jsx';
 function IndicadorClique(props) {
   if (props.longo === true) {
     return (
@@ -137,7 +137,11 @@ class SinglePlayerGame extends Component {
       //  return musicaf10;
     }
   }
-
+  startClick(){
+    let audio = document.getElementById('audio2');
+    audio.play();
+   
+  }
   click(event, tipo) {
     let botao = event.target;
     if(this.state.vidas <= 0){
@@ -192,6 +196,7 @@ class SinglePlayerGame extends Component {
         <FaseSelection 
         
         fase={this.props.fase} />
+        <Lore click= {this.startClick}></Lore>
         <header>
           <button onClick={this.back}>←</button>
 
@@ -208,7 +213,7 @@ class SinglePlayerGame extends Component {
           <section className='Game'>
             
             <Player pula={this.state.pula} vidas ={this.state.vidas} contador={this.state.contadorTempo} acerto={this.state.acerto}/>
-
+            
           </section>
 
           <section className='GameControls'>  
