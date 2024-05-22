@@ -41,9 +41,9 @@ class SinglePlayerGame extends Component {
 
   checaJogada(but, oldBut)
   {
-    console.log('O estado anterior eh: ' + oldBut);
-    console.log('O botoes eh: ' + but);
-    console.log('O valor da jogada eh: ' + this.state.jogada);
+    // console.log('O estado anterior eh: ' + oldBut);
+    // console.log('O botoes eh: ' + but);
+    // console.log('O valor da jogada eh: ' + this.state.jogada);
 
     if(!(but.every((val,index) => val === oldBut[index])) && !(but.every(val => val === 1)))
     {   
@@ -66,7 +66,10 @@ class SinglePlayerGame extends Component {
     let prevTypes = [1,1,1];
     
     this.interval = setInterval( () => {
-      
+      if(this.state.vidas <= 0){
+        clearInterval(this.interval);
+        return;
+      }
       const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
       this.setState({ contadorTempo: this.state.contadorTempo + 1 });
       let contador = this.state.contadorTempo
@@ -137,7 +140,9 @@ class SinglePlayerGame extends Component {
 
   click(event, tipo) {
     let botao = event.target;
-    
+    if(this.state.vidas <= 0){
+      return;
+    }
     if(this.começou === false){
       this.start();
       this.começou = true;
@@ -146,17 +151,17 @@ class SinglePlayerGame extends Component {
       botao.innerHTML = ""
       botao.classList.remove("longo")
     }
-    console.log('click',tipo)
+    // console.log('click',tipo)
     if(tipo==1){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
       window.setTimeout(() => {
         this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
       },1100)
-      console.log('errou',this.state.vidas);
+      // console.log('errou',this.state.vidas);
     }
     if(tipo==2){
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
-      console.log('acertou');
+      // console.log('acertou');
       let audio = document.getElementById('audio');
       audio.play();
     }
@@ -188,14 +193,14 @@ class SinglePlayerGame extends Component {
         
         fase={this.props.fase} />
         <header>
-          <section>
           <button onClick={this.back}>←</button>
 
-       
-          </section>
+
           <section> 
             <h1>{this.showLifeBar() }
             </h1>
+            <h1>{this.formatarNumero(this.state.pontos)}</h1>
+
           </section>
           {/* <img src={sprite} alt="" /> */}
         </header>
@@ -207,7 +212,6 @@ class SinglePlayerGame extends Component {
           </section>
 
           <section className='GameControls'>  
-            <h1>{this.formatarNumero(this.state.pontos)}</h1>
             <section className='GameControlsButtons'>
               <IndicadorClique click={(e)=> this.click(e,this.state.botoesType[0])} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
               <IndicadorClique   click={(e)=> this.click(e,this.state.botoesType[1])} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />

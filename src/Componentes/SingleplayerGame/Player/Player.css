@@ -1,14 +1,17 @@
 .Player{
-    grid-row: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
     grid-column: 2;
     width: 60%;
+    height: 100%;
     -webkit-user-select: none;
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
     
-    justify-self:center;
-    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: blink 0.8s linear ;
 }
 .Player img {
@@ -30,7 +33,7 @@
         transform: translateY(0%); ;
     }
     40% {
-        transform: translateY(-80%); ;
+        transform: translateY(-20%); ;
     }
 
 }
@@ -38,32 +41,36 @@
     animation: jump 0.8s;
 }
 .Player canvas {
-    border: 5px solid red;
+    filter: drop-shadow(0px 0px  10px rgb(0, 0, 0));
     width: 100%;
-    z-index: -1;
-    
+    height: auto;
+    align-self: flex-end;
+    justify-self: flex-end;
 }
 .Seguradoras {
+    filter: drop-shadow(0px 0px  10px rgb(0, 0, 0));
 
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    grid-column-start: 2;
+  
+    grid-row-start: 3;
 
 
     width: 100%;
+    height: 100%;
     -webkit-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
-
+    display: flex;
     animation: blink 0.8s linear ;
 }
-.Seguradoras img {
+.Seguradoras canvas {
     width: 100%;
-    height: 100%;
+    height: 60%;
     mix-blend-mode: multiply;
     background: none;
     background-size: cover;
+    align-self: flex-end;
+    justify-self: flex-end;
     background-position: center;
 }
