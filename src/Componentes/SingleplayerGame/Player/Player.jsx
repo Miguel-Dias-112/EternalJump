@@ -43,6 +43,7 @@ class Player extends React.Component {
   cleanUrl(img){
     
     let url = "./.."+img;
+    console.log(img,url.split('?')[0])
     return url.split('?')[0];
   }
   loadImages(array){
