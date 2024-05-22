@@ -84,7 +84,9 @@ class Player extends React.Component {
     const pulo = [pulando1,pulando2,pulando2,pulando3]
     const idle = [idle1,idle2,idle1]
 
-    var canvas = document.querySelector('canvas');
+    var canvas = document.querySelector('#canvas');
+    var canvas2 = document.querySelector('#canvas2');
+    var corda = canvas2.getContext('2d');
     var c = canvas.getContext('2d');
 
     canvas.width= 24;
@@ -98,6 +100,7 @@ class Player extends React.Component {
       if(this.props.pula){
         this.fisicaPulo()
         this.runAnims(c,imagensPulo,100)
+        this.runAnims(corda,imagesIdle,100)
       }
       else{
         this.runAnims(c,imagesIdle,100)
@@ -112,7 +115,7 @@ class Player extends React.Component {
     return (  
         <>
         <div className='Seguradoras'>
-          <img id='y'  src alt="seguradoras" />
+          <canvas id='canvas2' ></canvas>
         </div>
         <div id='x' className='Player'>
           <canvas id='canvas' >
