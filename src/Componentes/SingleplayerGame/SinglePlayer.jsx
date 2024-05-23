@@ -46,7 +46,7 @@ class SinglePlayerGame extends Component {
     // console.log('O botoes eh: ' + but);
     // console.log('O valor da jogada eh: ' + this.state.jogada);
 
-    if(!(but.every((val,index) => val === oldBut[index])) && !(but.every(val => val === 1)))
+    if(!(but.every((val,index) => val === oldBut[index])) && !(but.every(val => val === 1)) && !(but.every(val => val === 0)) && but[0] != 3 && but[1] != 3 && but[2] != 3)
     {   
       if( !this.state.jogada)
         {
@@ -59,6 +59,7 @@ class SinglePlayerGame extends Component {
 
   start(){
     let audio = document.getElementById('audio2');
+    audio.volume = 0.2
     audio.play();
     
 
@@ -86,8 +87,12 @@ class SinglePlayerGame extends Component {
           
         } else if (botão === 2) {
           visivel[index] = 'visible';
-          cor[index] = 'rgba(172, 255, 47, 0.664)';
-        } else {
+          cor[index] = 'rgba(172, 255, 47, 1)';
+        } else if(botão==3){
+          visivel[index] = 'visible';
+          cor[index] = 'rgba(172, 255, 47, 0.4)';
+        }
+        else {
           visivel[index] = 'hidden';
         }
       });
@@ -99,12 +104,14 @@ class SinglePlayerGame extends Component {
         prevTypes = botoes.slice();    
       }, 1000)
           
-      },125); //voltar p 100 dps teste
+      },100); //voltar p 100 dps teste
   }
   componentDidMount() {
     console.log('mounted');
   }
-
+  componentDidUpdate() {
+    this.showLifeBar();
+  }
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -174,8 +181,14 @@ class SinglePlayerGame extends Component {
     if(tipo==2){
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
       // console.log('acertou');
-      let audio = document.getElementById('audio');
-      audio.play();
+      //let audio = document.getElementById('audio');
+      //audio.play();
+    }
+    if(tipo==3){
+      this.setState({pontos: this.state.pontos + 2, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
+      // console.log('acertou');
+      //let audio = document.getElementById('audio');
+      //audio.play();
     }
 
     window.setTimeout(() => {
@@ -186,14 +199,20 @@ class SinglePlayerGame extends Component {
 
 
  showLifeBar() {
-    let str = "";
+
+    let x = document.querySelector('.lifebar');
+    x.innerHTML = '';
+
     for (let i = 0; i < this.state.vidas; i++) {
-      str += '❤️';
+      let div = document.createElement('div');
+      div.classList.add('heart');
+      x.appendChild(div);
     }
     for (let i = 0; i < 5 - this.state.vidas ; i++) {
-      str+= '🖤';
+      let div = document.createElement('div');
+      div.classList.add('brokenHeart');
+      x.appendChild(div);
     }
-    return str;
   }
   back() {
     window.location.href = '../SinglePlayer/';
@@ -209,8 +228,7 @@ class SinglePlayerGame extends Component {
           <button onClick={this.back}>←</button>
 
           <section> 
-            <h1>{this.showLifeBar() }
-            </h1>
+            <section id='lifebar' className='lifebar'></section>
             <h1>{this.formatarNumero(this.state.pontos)}</h1>
 
           </section>
