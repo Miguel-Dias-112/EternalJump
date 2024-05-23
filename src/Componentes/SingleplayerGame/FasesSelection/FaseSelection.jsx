@@ -2,19 +2,37 @@ import { useState } from 'react';
 import './FaseSelection.css'
 
 
+import { useCookies } from 'react-cookie';
 
 
-function goTo( fase){
- 
-        window.location.href = '/SinglePlayer/fase'+fase;
-    
-}
+
 export function FaseSelection( props) {
+    const [cookies, setCookie] = useCookies(['dadosCookie']);
+    let dados = cookies.dadosCookie;
     let _display
     if(props.fase !== 0){
         _display = 'none';
     }
+
+    function goTo( faseAtual){
     
+        dados = cookies.dadosCookie;
+    
+        const fasesConsluidas= dados.fasesConsluidas[0,0,0]
+        const faseAnterior = faseAtual -1
+        const faseAnteriorConcluida = fasesConsluidas[faseAnterior]
+        if(faseAtual===0){
+            window.location.href = '/SinglePlayer/fase'+faseAtual;
+            return
+        }
+        if( faseAnteriorConcluida === 1 ){
+            window.location.href = '/SinglePlayer/fase'+faseAtual;
+        }else{
+            window.alert("você não fez a fase "+ faseAnterior)
+        }
+       
+        
+    }
   
     return (
         <div style={{display:_display}} className = 'paginaSelecao'>
