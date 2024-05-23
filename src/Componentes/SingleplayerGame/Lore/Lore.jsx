@@ -29,15 +29,13 @@ export function Lore( props) {
         
         switch (faseAtual) {
         case 1: 
-        return (
-            <LorePrimeira></LorePrimeira>
-        )
-        case 2:
             return (
                 <LorePrimeira></LorePrimeira>
             )
-
-                
+        case 2:
+            return (
+                <LorePrimeira></LorePrimeira>
+            )      
         default:
             break;
         }

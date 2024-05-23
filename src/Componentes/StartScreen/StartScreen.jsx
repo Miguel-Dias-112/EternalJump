@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './StartScreen.css'
+
 export default function StartScreen(props) {
 
   let startGame = function(){
