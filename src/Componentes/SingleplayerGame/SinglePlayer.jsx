@@ -7,6 +7,7 @@ import getFase from '../../Data/Fases';
 import { useCookies } from 'react-cookie';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
 import { Lore } from './Lore/Lore.jsx';
+import { Final } from './Final/Final.jsx';
 function IndicadorClique(props) {
   if (props.longo === true) {
     return (
@@ -34,6 +35,7 @@ class SinglePlayerGame extends Component {
       botoesType: [1,2,1],
       botoesColor :['rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)'],
       jogada: false,
+      tipofim: 0,
     }
 
     this.click = this.click.bind(this);
@@ -63,22 +65,23 @@ class SinglePlayerGame extends Component {
     audio.volume = 0.2
     audio.play();
     
-
+    
     const TimeLine = getFase(this.props.fase).intervalos  // array de marc temporal
     let prevTypes = [1,1,1];
     
     this.interval = setInterval( () => {
-      if(this.state.vidas <= 0){
-        clearInterval(this.interval);
-        return;
-      }
+      
       const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
       this.setState({ contadorTempo: this.state.contadorTempo + 1 });
       let contador = this.state.contadorTempo
       const botoes = intervalo[contador];
       let visivel = this.state.botoesVisibility;
-      
-      
+      if(this.state.vidas <= 0 || this.state.contadorTempo > intervalo.length-1){
+        this.setState({tipofim: this.verifFinal(this.state.vidas, this.state.contadorTempo, intervalo)});
+        clearInterval(this.interval);
+        audio.pause();
+        return;
+      }
       this.setState({ botoesType: botoes });
       let cor = this.state.botoesColor;
       botoes.forEach((botão, index) => {
@@ -145,6 +148,16 @@ class SinglePlayerGame extends Component {
       //  return musicaf10;
     }
   }
+
+  verifFinal(vida, contador, intervalo) {
+    if (vida <= 0) {
+      return 2;
+    }
+    if (contador > intervalo.length-1) {
+      return 1;
+    }
+    return 0;
+}
   comecaFase= function(){
 
     for (let i = 0; i < 3; i++) {
@@ -223,7 +236,7 @@ class SinglePlayerGame extends Component {
       <main  className='SinglePlayerGame'>
         <FaseSelection fase={this.props.fase} />
         <Lore fase={this.props.fase} click = { this.comecaFase}></Lore>
-       
+        <Final tipo={this.state.tipofim}/>
 
         <header>
           <button onClick={this.back}>←</button>
