@@ -1,5 +1,8 @@
 import './FaseSelection.css'
 
+
+
+
 function goTo( fase){
  
         window.location.href = '/SinglePlayer/fase'+fase;
@@ -24,9 +27,7 @@ export function FaseSelection( props) {
                     <div className = 'seletorDeFase' style={{gridRow:1}} onClick={ () => goTo(1)}></div>
                     <div className = 'seletorDeFase' style={{gridRow:2}} onClick={ () => goTo(2)}></div>
                     <div className = 'seletorDeFase' style={{gridRow:3}} onClick={ () => goTo(3)}></div>
-                    
-
-               
+        
             </div >
         </div>
         
