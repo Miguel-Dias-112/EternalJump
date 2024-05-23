@@ -4,6 +4,7 @@ import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
 import musicaf1 from '../../Assets/musicas/Inferno.mp3';
 import getFase from '../../Data/Fases';
+import { useCookies } from 'react-cookie';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
 import { Lore } from './Lore/Lore.jsx';
 function IndicadorClique(props) {
@@ -37,7 +38,6 @@ class SinglePlayerGame extends Component {
 
     this.click = this.click.bind(this);
     this.back = this.back.bind(this);
-   
   }
 
   checaJogada(but, oldBut)
@@ -58,6 +58,8 @@ class SinglePlayerGame extends Component {
   }
 
   start(){
+    const [cookies, setCookie] = useCookies(['lorepassou']);
+    setCookie('lorepassou', false , { path: '/' });
     let audio = document.getElementById('audio2');
     audio.volume = 0.2
     audio.play();
@@ -197,7 +199,7 @@ class SinglePlayerGame extends Component {
 
   }
 
-
+  
  showLifeBar() {
 
     let x = document.querySelector('.lifebar');

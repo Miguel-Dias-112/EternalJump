@@ -4,6 +4,7 @@ import lore2 from '../../../Assets/imagensPlaceHolder/placeholder2.png'
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { useCookies } from 'react-cookie';
 import { Pagination } from 'swiper/modules';
 export function Lore( props) {
     let handleClick = () => {
@@ -16,11 +17,11 @@ export function Lore( props) {
             x.style.display = 'none';
         },501)
         setTimeout(() => {props.click()}, 505)
+        setCookie('lorepassou', true, { path: '/' });
         
-       
     }
     let _display;
-    if(props.fase === 0){
+    if(props.fase === 0 || cookies.lorepassou == true){
         _display = 'none';
     }
     return (
