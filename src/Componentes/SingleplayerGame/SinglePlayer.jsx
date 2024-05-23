@@ -108,7 +108,9 @@ class SinglePlayerGame extends Component {
   componentDidMount() {
     console.log('mounted');
   }
-
+  componentDidUpdate() {
+    this.showLifeBar();
+  }
   componentWillUnmount() {
     clearInterval(this.interval);
   }
@@ -182,7 +184,7 @@ class SinglePlayerGame extends Component {
       //audio.play();
     }
     if(tipo==3){
-      this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
+      this.setState({pontos: this.state.pontos + 2, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
       // console.log('acertou');
       //let audio = document.getElementById('audio');
       //audio.play();
@@ -196,14 +198,20 @@ class SinglePlayerGame extends Component {
 
 
  showLifeBar() {
-    let str = "";
+
+    let x = document.querySelector('.lifebar');
+    x.innerHTML = '';
+
     for (let i = 0; i < this.state.vidas; i++) {
-      str += '❤️';
+      let div = document.createElement('div');
+      div.classList.add('heart');
+      x.appendChild(div);
     }
     for (let i = 0; i < 5 - this.state.vidas ; i++) {
-      str+= '🖤';
+      let div = document.createElement('div');
+      div.classList.add('brokenHeart');
+      x.appendChild(div);
     }
-    return str;
   }
   back() {
     window.location.href = '../SinglePlayer/';
@@ -219,8 +227,7 @@ class SinglePlayerGame extends Component {
           <button onClick={this.back}>←</button>
 
           <section> 
-            <h1>{this.showLifeBar() }
-            </h1>
+            <section id='lifebar' className='lifebar'></section>
             <h1>{this.formatarNumero(this.state.pontos)}</h1>
 
           </section>

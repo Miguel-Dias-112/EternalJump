@@ -9,9 +9,13 @@
     justify-content: center;
     align-items: center;
   
-     animation: fadein 2s;
 }
-
+.fadein{
+    animation: fadein 2s;
+}
+.fadeout{
+    animation: aaa 0.5s;
+}
 .background{
     position: absolute;
     width: 100%;
@@ -84,6 +88,15 @@
     }
     to {
         opacity: 1;
+
+    }
+}@keyframes aaa {
+    from {
+        transform: scale(1);
+
+    }
+    to {
+        transform: scale(0);
 
     }
 }
