@@ -50,6 +50,11 @@
     justify-content: space-evenly;
     align-items: center;
 }
+.slide section img{
+    width: 80%;
+    height: 50%;
+    border-radius: 5px;
+}
 .slide section .text{
     width: 50%;
     background-color: #85e1fd;

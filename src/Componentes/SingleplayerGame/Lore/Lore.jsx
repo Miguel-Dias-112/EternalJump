@@ -1,5 +1,6 @@
 import './Lore.css'
-import lore1 from '../../../Assets/lore1.png'
+import lore1 from '../../../Assets/imagensPlaceHolder/placeholder1.png'
+import lore2 from '../../../Assets/imagensPlaceHolder/placeholder2.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -41,13 +42,14 @@ export function Lore( props) {
                    <section>
                        <p className='text'>Era uma vez uma menina chamada raquel janaina, conhecida por sua coragem e decisões imaturas. </p>
                       
-                       
+                       <img src={lore1}></img>
+
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
                        <p  className='text'>Um dirincando e apareceram duas criaturas que a desafiaram</p>
-                      
+                       <img src={lore2}></img>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
