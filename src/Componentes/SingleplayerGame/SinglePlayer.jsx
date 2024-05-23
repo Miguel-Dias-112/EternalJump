@@ -59,6 +59,7 @@ class SinglePlayerGame extends Component {
 
   start(){
     let audio = document.getElementById('audio2');
+    audio.volume = 0.2
     audio.play();
     
 
