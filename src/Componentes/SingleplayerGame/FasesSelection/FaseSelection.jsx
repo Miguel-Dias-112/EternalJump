@@ -17,22 +17,17 @@ export function FaseSelection( props) {
                 
                 </button>
             </header>
-            <ol  >
-                <li>
-                    <div className = 'seletorDeFase' onClick={ () => goTo(1)}></div>
-                    <h2>Fase 1</h2>
-                </li>
+            <div  className='mapa' >
+                <image className='onetothree'></image>
+                <image className='twotothree'></image>
+                    
+                    <div className = 'seletorDeFase' style={{gridRow:1}} onClick={ () => goTo(1)}></div>
+                    <div className = 'seletorDeFase' style={{gridRow:2}} onClick={ () => goTo(2)}></div>
+                    <div className = 'seletorDeFase' style={{gridRow:3}} onClick={ () => goTo(3)}></div>
+                    
 
-                <li>
-                    <div className = 'seletorDeFase' onClick={ () => goTo(2)}></div>
-                    <h2>Fase 2</h2>
-                </li>
-                <li>
-                    <div className = 'seletorDeFase' onClick={ () => goTo(3)}></div>
-                    <h2>Fase 3</h2>
-                </li>
-
-            </ol>
+               
+            </div >
         </div>
         
     );
