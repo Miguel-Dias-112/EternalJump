@@ -103,7 +103,7 @@
 .GameArea .GameControls h1{
     margin: 0%;
     font-size: 40px;
-    padding: 0%;
+
     background-color: #85e1fd;
 
 }
@@ -111,7 +111,8 @@
     border-radius: 5px;
     background-color: #85e1fd;
 
- 
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
