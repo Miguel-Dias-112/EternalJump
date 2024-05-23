@@ -1,10 +1,10 @@
 import './Lore.css'
 import lore1 from '../../../Assets/imagensPlaceHolder/placeholder1.png'
 import lore2 from '../../../Assets/imagensPlaceHolder/placeholder2.png'
-
+import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
+import { Pagination } from 'swiper/modules';
 export function Lore( props) {
     let handleClick = () => {
         let x = document.getElementById('lore');
@@ -34,6 +34,8 @@ export function Lore( props) {
                className='swiper'
                spaceBetween={0}
                slidesPerView={1}
+               modules={[Pagination]}
+               pagination={true}
                onSlideChange={() => console.log('slide change')}
                onSwiper={(swiper) => console.log(swiper)}>
 
