@@ -58,8 +58,7 @@ class SinglePlayerGame extends Component {
   }
 
   start(){
-    const [cookies, setCookie] = useCookies(['lorepassou']);
-    setCookie('lorepassou', false , { path: '/' });
+
     let audio = document.getElementById('audio2');
     audio.volume = 0.2
     audio.play();

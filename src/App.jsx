@@ -3,6 +3,7 @@ import './App.css'
 import Jogador from './Jogador.jsx'
 import SinglePlayerGame from './Componentes/SingleplayerGame/SinglePlayer.jsx'
 import StartScreen from './Componentes/StartScreen/StartScreen.jsx'
+import { useCookies, Cookies } from 'react-cookie';
 
 import {
   
@@ -11,8 +12,21 @@ import {
   useRoutes,
   BrowserRouter,
 } from "react-router-dom";
+
 function App() {
+  let dadosCookie = {
+    fezTutorial: false,
+    fasesConsluidas: [0,0,0]
+  }
+
+  const [cookies, setCookie] = useCookies(['dadosCookie']);
   
+  if (cookies.dadosCookie === undefined) {
+    console.log("Isso está indefinido");
+    setCookie('dadosCookie', dadosCookie );
+  }
+
+  console.log(cookies);
 
   return (
     <>
@@ -28,5 +42,6 @@ function App() {
     </>
   )
 }
+
 
 export default App
