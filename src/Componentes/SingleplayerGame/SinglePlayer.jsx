@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SinglePlayer.css';
 import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
-import musicaf1 from '../../Sons/musica8bitSemCopyRight.mp3';
+import musicaf1 from '../../Assets/musicas/Inferno.mp3';
 import getFase from '../../Data/Fases';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
 import { Lore } from './Lore/Lore.jsx';
@@ -25,11 +25,11 @@ class SinglePlayerGame extends Component {
     super(props);
     this.state = { 
       vidas:5,
-      
+      cronometroInicio:4,
       contadorTempo: 0, pontos: 0,
       pula: false, 
       acerto:true,
-      botoesVisibility: ['hidden','visible','hidden'] ,
+      botoesVisibility: ['hidden','hidden','hidden'] ,
       botoesType: [1,2,1],
       botoesColor :['rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)','rgba(172, 255, 47, 0.664)'],
       jogada: false,
@@ -37,6 +37,7 @@ class SinglePlayerGame extends Component {
 
     this.click = this.click.bind(this);
     this.back = this.back.bind(this);
+   
   }
 
   checaJogada(but, oldBut)
@@ -56,13 +57,12 @@ class SinglePlayerGame extends Component {
     }
   }
 
-  começou= false
   start(){
+    let audio = document.getElementById('audio2');
+    audio.play();
+    
 
     const TimeLine = getFase(this.props.fase).intervalos  // array de marc temporal
-  
-   
-    
     let prevTypes = [1,1,1];
     
     this.interval = setInterval( () => {
@@ -137,24 +137,32 @@ class SinglePlayerGame extends Component {
       //  return musicaf10;
     }
   }
-  startClick(){
-    let audio = document.getElementById('audio2');
-    audio.play();
-   
-  }
+  comecaFase= function(){
+
+    for (let i = 0; i < 3; i++) {
+      setTimeout(()=>{
+
+        this.setState({cronometroInicio: this.state.cronometroInicio-1})
+        console.log('tempo',i)
+      }, 1000*i);
+    }
+    
+    setTimeout(()=>{
+      let x = document.querySelector("#contadorCtn")
+      x.style.display="none"
+    },3500)
+    setTimeout(()=>{
+      this.start()
+    },4000)
+
+  }.bind(this)
+  
   click(event, tipo) {
     let botao = event.target;
     if(this.state.vidas <= 0){
       return;
     }
-    if(this.começou === false){
-      this.start();
-      this.começou = true;
-      let audio = document.getElementById('audio2');
-      audio.play();
-      botao.innerHTML = ""
-      botao.classList.remove("longo")
-    }
+   
     // console.log('click',tipo)
     if(tipo==1){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
@@ -193,13 +201,12 @@ class SinglePlayerGame extends Component {
   render() {
     return (
       <main  className='SinglePlayerGame'>
-        <FaseSelection 
-        
-        fase={this.props.fase} />
-        <Lore fase={this.props.fase} click= {this.startClick}></Lore>
+        <FaseSelection fase={this.props.fase} />
+        <Lore fase={this.props.fase} click = { this.comecaFase}></Lore>
+       
+
         <header>
           <button onClick={this.back}>←</button>
-
 
           <section> 
             <h1>{this.showLifeBar() }
@@ -211,15 +218,19 @@ class SinglePlayerGame extends Component {
         </header>
         <section className='GameArea'>
           <section className='Game'>
-            
+            <div id="contadorCtn" className = 'Contador'>
+                <div> {this.state.cronometroInicio}</div>
+            </div>
             <Player pula={this.state.pula} vidas ={this.state.vidas} contador={this.state.contadorTempo} acerto={this.state.acerto}/>
             
           </section>
 
-          <section className='GameControls'>  
+          <section className='GameControls'> 
+           
             <section className='GameControlsButtons'>
+              
               <IndicadorClique click={(e)=> this.click(e,this.state.botoesType[0])} cor={this.state.botoesColor[0]} visivel={this.state.botoesVisibility[0]} />
-              <IndicadorClique   click={(e)=> this.click(e,this.state.botoesType[1])} longo={true} cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
+              <IndicadorClique   click={(e)=> this.click(e,this.state.botoesType[1])}  cor={this.state.botoesColor[1]} visivel={this.state.botoesVisibility[1]} />
               <IndicadorClique  click={(e)=> this.click(e,this.state.botoesType[2])} cor={this.state.botoesColor[2]} visivel={this.state.botoesVisibility[2]} />
             </section>
             
