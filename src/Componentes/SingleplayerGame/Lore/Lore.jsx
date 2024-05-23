@@ -1,16 +1,23 @@
 import './Lore.css'
-import lore1 from '../../../Assets/lore1.png'
+import lore1 from '../../../Assets/imagensPlaceHolder/placeholder1.png'
+import lore2 from '../../../Assets/imagensPlaceHolder/placeholder2.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export function Lore( props) {
     let handleClick = () => {
-        props.click()
         let x = document.getElementById('lore');
-        let y = document.getElementById('back');
-        y.style.display = 'none';
-        x.style.display = 'none';
+        x.classList.add('fadeout');
+        setTimeout(() => {
+            let x = document.getElementById('lore');
+            let y = document.getElementById('back');
+            y.style.display = 'none';
+            x.style.display = 'none';
+        },501)
+        setTimeout(() => {props.click()}, 505)
+        
+       
     }
     let _display;
     if(props.fase === 0){
@@ -21,7 +28,7 @@ export function Lore( props) {
          <div id='back' className='background'>
                 
         </div>
-        <div style={{display:_display}} className = 'Lore' id='lore'>
+        <div style={{display:_display}} className = 'Lore fadein' id='lore'>
            
            <Swiper
                className='swiper'
@@ -33,15 +40,16 @@ export function Lore( props) {
 
                <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Era uma vez uma menina chamada raquel janaina, conhecida</p>
+                       <p className='text'>Era uma vez uma menina chamada raquel janaina, conhecida por sua coragem e decisões imaturas. </p>
                       
-                       
+                       <img src={lore1}></img>
+
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
                        <p  className='text'>Um dirincando e apareceram duas criaturas que a desafiaram</p>
-                      
+                       <img src={lore2}></img>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>

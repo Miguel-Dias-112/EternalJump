@@ -130,7 +130,7 @@ class Player extends React.Component {
     let imagensMorte = this.loadImages(mortePng);
 
     this.runAnims(c,imagesIdle)
-    this.runAnims(c,imagensPulo,100,res)
+    this.runAnims(canvas2C,imagensCorda,100,res)
 
     setInterval(()=>{
       if(this.dieonce){
