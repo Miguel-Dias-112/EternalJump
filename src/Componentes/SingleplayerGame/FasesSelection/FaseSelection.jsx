@@ -21,7 +21,7 @@ export function FaseSelection( props) {
         const fasesConsluidas= dados.fasesConsluidas[0,0,0]
         const faseAnterior = faseAtual -1
         const faseAnteriorConcluida = fasesConsluidas[faseAnterior]
-        if(faseAtual===0){
+        if(faseAtual===1){
             window.location.href = '/SinglePlayer/fase'+faseAtual;
             return
         }
