@@ -16,7 +16,7 @@ import {
 function App() {
   let dadosCookie = {
     fezTutorial: false,
-    fasesConsluidas: [0,0,0]
+    fasesConcluidas: [0,0,0]
   }
 
   const [cookies, setCookie] = useCookies(['dadosCookie']);

@@ -37,51 +37,52 @@ class SinglePlayerGame extends Component {
       jogada: false,
       tipofim: 0,
     }
-
+    
     this.click = this.click.bind(this);
     this.back = this.back.bind(this);
+    
   }
-
+  
   checaJogada(but, oldBut)
   {
     // console.log('O estado anterior eh: ' + oldBut);
     // console.log('O botoes eh: ' + but);
     // console.log('O valor da jogada eh: ' + this.state.jogada);
-
+    
     if(!(but.every((val,index) => val === oldBut[index])) && !(but.every(val => val === 1)) && !(but.every(val => val === 0)) && but[0] != 3 && but[1] != 3 && but[2] != 3)
-    {   
-      if( !this.state.jogada)
-        {
-          this.setState({ vidas: this.state.vidas - 1 });
+      {   
+        if( !this.state.jogada)
+          {
+            this.setState({ vidas: this.state.vidas - 1 });
+          }
+          
+          this.setState({ jogada: false });
         }
-      
-      this.setState({ jogada: false });
-    }
-  }
-
-  start(){
-
-    let audio = document.getElementById('audio2');
-    audio.volume = 0.2
-    audio.play();
-    
-    
-    const TimeLine = getFase(this.props.fase).intervalos  // array de marc temporal
-    let prevTypes = [1,1,1];
-    
-    this.interval = setInterval( () => {
-      
-      const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
-      this.setState({ contadorTempo: this.state.contadorTempo + 1 });
-      let contador = this.state.contadorTempo
-      const botoes = intervalo[contador];
-      let visivel = this.state.botoesVisibility;
-      if(this.state.vidas <= 0 || this.state.contadorTempo > intervalo.length-1){
-        this.setState({tipofim: this.verifFinal(this.state.vidas, this.state.contadorTempo, intervalo)});
-        clearInterval(this.interval);
-        audio.pause();
-        return;
       }
+      
+      start(){
+        
+        let audio = document.getElementById('audio2');
+        audio.volume = 0.2
+        audio.play();
+        
+        
+        const TimeLine = getFase(this.props.fase).intervalos  // array de marc temporal
+        let prevTypes = [1,1,1];
+        
+        this.interval = setInterval( () => {
+          
+          const intervalo = getFase(this.props.fase).intervalos // array com a sequencia de botoõe
+          this.setState({ contadorTempo: this.state.contadorTempo + 1 });
+          let contador = this.state.contadorTempo
+          const botoes = intervalo[contador];
+          let visivel = this.state.botoesVisibility;
+          if(this.state.vidas <= 0 || this.state.contadorTempo > intervalo.length-1){
+            this.setState({tipofim: this.verifFinal(this.state.vidas, this.state.contadorTempo, intervalo)});
+            clearInterval(this.interval);
+            audio.pause();
+            return;
+          }
       this.setState({ botoesType: botoes });
       let cor = this.state.botoesColor;
       botoes.forEach((botão, index) => {
@@ -100,15 +101,15 @@ class SinglePlayerGame extends Component {
           visivel[index] = 'hidden';
         }
       });
-
+      
       this.setState({ botoesVisibility: visivel, botoesColor: cor })  
-
+      
       setTimeout( () => {
         this.checaJogada(botoes, prevTypes);
         prevTypes = botoes.slice();    
       }, 1000)
-          
-      },100); //voltar p 100 dps teste
+      
+    },100); //voltar p 100 dps teste
   }
   componentDidMount() {
     console.log('mounted');
@@ -119,49 +120,40 @@ class SinglePlayerGame extends Component {
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-
+  
   formatarNumero(numero) {
     return numero.toString().padStart(3, '0');
   }
-
+  
   selecionarMusica(fase) {
     switch (fase) {
       case 1:
         return musicaf1;
-      //case 2:
-      //  return musicaf2;
-      //case 3:
-      //  return musicaf3;
-      //case 4:
-      //  return musicaf4;
-      //case 5:
-      //  return musicaf5;
-      //case 6:
-      //  return musicaf6;
-      //case 7:
-      //  return musicaf7;
-      //case 8:
-      //  return musicaf8;
-      //case 9:
-      //  return musicaf9;
-      //case 10:
-      //  return musicaf10;
+        //case 2:
+        //  return musicaf2;
+        //case 3:
+        //  return musicaf3;
+      }
     }
-  }
-
-  verifFinal(vida, contador, intervalo) {
-    if (vida <= 0) {
-      return 2;
+    
+    verifFinal(vida, contador, intervalo) {
+      //const [cookies, setCookie] = useCookies(['dadosCookie']);
+      //let dados = cookies.dadosCookie;
+     //let biscuit = cookies.dadosCookie;
+      if (vida <= 0) {
+        return 2;
+      }
+      if (contador > intervalo.length-1) {
+        biscuit.fasesConcluidas = [1,0,0];
+        setCookie()
+        return 1;
+      }
+      return 0;
     }
-    if (contador > intervalo.length-1) {
-      return 1;
-    }
-    return 0;
-}
-  comecaFase= function(){
-
-    for (let i = 0; i < 3; i++) {
-      setTimeout(()=>{
+    comecaFase= function(){
+      
+      for (let i = 0; i < 3; i++) {
+        setTimeout(()=>{
 
         this.setState({cronometroInicio: this.state.cronometroInicio-1})
         console.log('tempo',i)
@@ -236,7 +228,7 @@ class SinglePlayerGame extends Component {
       <main  className='SinglePlayerGame'>
         <FaseSelection fase={this.props.fase} />
         <Lore fase={this.props.fase} click = { this.comecaFase}></Lore>
-        <Final tipo={this.state.tipofim}/>
+        <Final tipo={this.state.tipofim} back={this.back} fase={this.props.fase}/>
 
         <header>
           <button onClick={this.back}>←</button>
