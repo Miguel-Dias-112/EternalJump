@@ -43,23 +43,17 @@ class SinglePlayerGame extends Component {
     
   }
   
-  checaJogada(but, oldBut)
-  {
-    // console.log('O estado anterior eh: ' + oldBut);
-    // console.log('O botoes eh: ' + but);
-    // console.log('O valor da jogada eh: ' + this.state.jogada);
-    
-    if(!(but.every((val,index) => val === oldBut[index])) && !(but.every(val => val === 1)) && !(but.every(val => val === 0)) && but[0] != 3 && but[1] != 3 && but[2] != 3)
-      {   
-        if( !this.state.jogada)
-          {
-            this.setState({ vidas: this.state.vidas - 1 });
-          }
-          
-          this.setState({ jogada: false });
-        }
+      checaJogada(but){
+        // console.log('O estado anterior eh: ' + oldBut);
+        // console.log('O botoes eh: ' + but);
+        // console.log('O valor da jogada eh: ' + this.state.jogada);
+        let valoresWrongTime = but.includes("wrongTime");
+        let valoresVerde = but.includes("preview");  
+        console.log('verde',valoresWrongTime,but)    
+        return valoresVerde || valoresWrongTime;
+           
       }
-      
+      idNota = -1;
       start(){
         
         let audio = document.getElementById('audio2');
@@ -77,10 +71,8 @@ class SinglePlayerGame extends Component {
           let contador = this.state.contadorTempo
           const botoes = intervalo[contador];
           let visivel = this.state.botoesVisibility;
-          console.log('intervalo',intervalo.length)
-          console.log('contador',contador)
+         
           if(this.state.vidas <= 0 || contador > intervalo.length-1){
-            console.log('sexoooooooooooooo')
             this.setState({tipofim: this.verifFinal(this.state.vidas, contador, intervalo)});
             clearInterval(this.interval);
             audio.pause();
@@ -96,9 +88,14 @@ class SinglePlayerGame extends Component {
         } else if (botão === 2) {
           visivel[index] = 'visible';
           cor[index] = 'rgba(172, 255, 47, 1)';
-        } else if(botão==3){
+        } else if(botão=="wrongTime"){
+
           visivel[index] = 'visible';
-          cor[index] = 'rgba(172, 255, 47, 0.4)';
+          cor[index] = 'rgba(172, 255, 47, 0.8)';
+        }
+        else if (botão === "preview") {
+          visivel[index] = 'visible';
+          cor[index] = '#E0BBE4';
         }
         else {
           visivel[index] = 'hidden';
@@ -106,11 +103,23 @@ class SinglePlayerGame extends Component {
       });
       
       this.setState({ botoesVisibility: visivel, botoesColor: cor })  
+      let id = botoes[3]
+
+      if(this.idNota<id){
+        this.idNota = id
+        const jogaValida = this.checaJogada(botoes);
+        const ocorreuClick = this.state.jogada;
+        console.log('jogada',this.state.jogada)
+        console.log('jogadaValida',jogaValida)
+        if(jogaValida && !ocorreuClick){
+          this.setState({vidas: this.state.vidas - 1, jogada: false });
+        }
+      }
       
-      setTimeout( () => {
-        this.checaJogada(botoes, prevTypes);
-        prevTypes = botoes.slice();    
-      }, 1000)
+      // setTimeout( () => {
+      //   this.checaJogada(botoes, prevTypes);
+      //   prevTypes = botoes.slice();    
+      // }, 1000)
       
     },100); //voltar p 100 dps teste
   }
@@ -190,7 +199,7 @@ class SinglePlayerGame extends Component {
       //let audio = document.getElementById('audio');
       //audio.play();
     }
-    if(tipo==3){
+    if(tipo=="wrongTime"){
       this.setState({pontos: this.state.pontos + 2, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
       // console.log('acertou');
       //let audio = document.getElementById('audio');

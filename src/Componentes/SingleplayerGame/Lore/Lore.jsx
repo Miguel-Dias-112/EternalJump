@@ -16,8 +16,7 @@ export function Lore( props) {
     const fezTutorial = dados.fezTutorial;
     const faseAtual = props.fase;
     
-    console.log(fezTutorial)
-    console.log(faseAtual)
+
 
     if(fezTutorial == false && faseAtual == 0)
         {

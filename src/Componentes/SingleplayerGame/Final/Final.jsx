@@ -9,6 +9,11 @@ export function Final(props) {
     let dados = cookies.dadosCookie;
 
     const recarregarPagina = () => {
+        if(tipoTela === 1){
+            let biscuit = cookies.dadosCookie;
+            biscuit.fasesConsluidas[fase] = 1;
+            setCookie("dadosCookie", biscuit)
+        }
         window.location.reload();   
     };
 
@@ -18,7 +23,7 @@ export function Final(props) {
         biscuit.fasesConsluidas[fase] = 1;
         setCookie("dadosCookie", biscuit)
         
-        const fasesConsluidas= dados.fasesConsluidas[0,0,0]
+        const fasesConcluidas= dados.fasesConcluidas[0,0,0]
         window.location.href = '/SinglePlayer/fase'+(fase+1);
         
     }
