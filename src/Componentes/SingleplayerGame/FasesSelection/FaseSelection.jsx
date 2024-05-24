@@ -13,12 +13,11 @@ export function FaseSelection( props) {
     if(props.fase !== 0){
         _display = 'none';
     }
+    const fasesConsluidas= dados.fasesConsluidas
 
     function goTo( faseAtual){
     
         dados = cookies.dadosCookie;
-    
-        const fasesConsluidas= dados.fasesConsluidas
         const faseAnterior = faseAtual -1
         const faseAnteriorConcluida = fasesConsluidas[faseAnterior]
         if(faseAtual===1){
@@ -46,10 +45,17 @@ export function FaseSelection( props) {
             <div  className='mapa' >
                 <image className='onetothree'></image>
                 <image  className='twotothree'></image>
-                    
-                    <div className = 'seletorDeFase' style={{gridRow:1}} onClick={ () => goTo(1)}></div>
-                    <div className = 'seletorDeFase' style={{gridRow:2}} onClick={ () => goTo(2)}></div>
-                    <div className = 'seletorDeFase' style={{gridRow:3}} onClick={ () => goTo(3)}></div>
+                   { fasesConsluidas.map((fase, index) => {
+                        console.log("concluida",fase,index)
+                        if(fase === 1){
+                            return <div className = 'seletorDeFase Concluida' style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+                        }else{
+                            return <div className = 'seletorDeFase ' style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+
+                        }
+                    })
+                    }
+                   
         
             </div >
         </div>
