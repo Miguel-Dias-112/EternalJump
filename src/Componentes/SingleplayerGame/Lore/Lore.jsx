@@ -30,13 +30,13 @@ export function Lore( props) {
         switch (faseAtual) {
         case 1: 
             return (
-                <LorePrimeira></LorePrimeira>
+                <LorePrimeira click = {props.click} />
             )
-        case 2:
+        /*case 2: 
             return (
-                <LorePrimeira></LorePrimeira>
-            )      
-        default:
+                <LoreSegunda click={props.click()}/>
+            )
+        */default:
             break;
         }
     }
