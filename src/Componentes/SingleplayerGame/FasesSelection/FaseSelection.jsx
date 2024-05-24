@@ -18,7 +18,7 @@ export function FaseSelection( props) {
     
         dados = cookies.dadosCookie;
     
-        const fasesConsluidas= dados.fasesConsluidas[0,0,0]
+        const fasesConsluidas= dados.fasesConsluidas
         const faseAnterior = faseAtual -1
         const faseAnteriorConcluida = fasesConsluidas[faseAnterior]
         if(faseAtual===1){
@@ -37,9 +37,11 @@ export function FaseSelection( props) {
     return (
         <div style={{display:_display}} className = 'paginaSelecao'>
             <header>
+            <h1>fases</h1>
                 <button onClick={()=>{window.location.href = '../'}}>
                 ←   
                 </button>
+                
             </header>
             <div  className='mapa' >
                 <image className='onetothree'></image>

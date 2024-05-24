@@ -77,8 +77,11 @@ class SinglePlayerGame extends Component {
           let contador = this.state.contadorTempo
           const botoes = intervalo[contador];
           let visivel = this.state.botoesVisibility;
-          if(this.state.vidas <= 0 || this.state.contadorTempo > intervalo.length-1){
-            this.setState({tipofim: this.verifFinal(this.state.vidas, this.state.contadorTempo, intervalo)});
+          console.log('intervalo',intervalo.length)
+          console.log('contador',contador)
+          if(this.state.vidas <= 0 || contador > intervalo.length-1){
+            console.log('sexoooooooooooooo')
+            this.setState({tipofim: this.verifFinal(this.state.vidas, contador, intervalo)});
             clearInterval(this.interval);
             audio.pause();
             return;
@@ -137,15 +140,12 @@ class SinglePlayerGame extends Component {
     }
     
     verifFinal(vida, contador, intervalo) {
-      //const [cookies, setCookie] = useCookies(['dadosCookie']);
-      //let dados = cookies.dadosCookie;
-     //let biscuit = cookies.dadosCookie;
+     
       if (vida <= 0) {
         return 2;
       }
       if (contador > intervalo.length-1) {
-        biscuit.fasesConcluidas = [1,0,0];
-        setCookie()
+        
         return 1;
       }
       return 0;

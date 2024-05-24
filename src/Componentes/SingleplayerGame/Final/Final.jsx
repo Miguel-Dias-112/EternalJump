@@ -1,18 +1,29 @@
 import './Final.css'
 import botoesplaceholder from '../../../Assets/imagensPlaceHolder/adamsandler.jpeg';
+import { useCookies } from 'react-cookie';
+
 export function Final(props) {
-    
+    const tipoTela = props.tipo;
+    const fase = props.fase;
+    const [cookies, setCookie] = useCookies(['dadosCookie']);
+    let dados = cookies.dadosCookie;
+
     const recarregarPagina = () => {
-        window.location.reload();
-      };
+        window.location.reload();   
+    };
 
     const proximo = () => {
-        //botao proximo ainda esta quebrado
-
-        window.location.reload();
+        let biscuit = cookies.dadosCookie;
+        console.log(biscuit)
+        biscuit.fasesConsluidas[fase] = 1;
+        setCookie("dadosCookie", biscuit)
+        
+        const fasesConsluidas= dados.fasesConsluidas[0,0,0]
+        window.location.href = '/SinglePlayer/fase'+(fase+1);
+        
     }
     
-    if(props.tipo === 2)
+    if(tipoTela === 2)
         { 
             return(
                 <>

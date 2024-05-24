@@ -28,56 +28,56 @@ function inter(segundos, padrão, gambiarra){
 const fases ={
     1:{
         intervalos : []
-        
         .concat(inter(4, [1,1,1],true))
-        .concat(inter(4, [1,1,1],false))
+//         .concat(inter(4, [1,1,1],true))
+//         .concat(inter(4, [1,1,1],false))
 
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
 
-        .concat(inter(4, [1,2,1],false))
-        .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [1,2,1],false))
 
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
 
-        .concat(inter(4, [2,1,1],false))
-        .concat(inter(4, [2,1,1],false))
+//         .concat(inter(4, [2,1,1],false))
+//         .concat(inter(4, [2,1,1],false))
 
-        .concat(inter(4, [1,1,2],false))
-///12
-        .concat(inter(4, [1,1,1],false))
-///12
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+// ///12
+//         .concat(inter(4, [1,1,1],false))
+// ///12
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
 
-        .concat(inter(4, [1,2,1],false))
-        .concat(inter(4, [1,2,1],false))
-        .concat(inter(4, [2,1,1],false))
-        .concat(inter(4, [2,1,1],false))
+//         .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [2,1,1],false))
+//         .concat(inter(4, [2,1,1],false))
 
-        .concat(inter(4, [1,1,2],false))
-///24
-        .concat(inter(4, [1,1,1],false))
-///24
+//         .concat(inter(4, [1,1,2],false))
+// ///24
+//         .concat(inter(4, [1,1,1],false))
+// ///24
 
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
 
-        .concat(inter(4, [1,2,1],false))
-        .concat(inter(4, [1,2,1],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
 
-        .concat(inter(4, [2,1,1],false))
-        .concat(inter(4, [1,2,1],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
-        .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [2,1,1],false))
+//         .concat(inter(4, [1,2,1],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
+//         .concat(inter(4, [1,1,2],false))
 
     },
     2: {
