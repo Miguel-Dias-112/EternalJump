@@ -33,6 +33,16 @@
     grid-template-columns: 5% 70px 1fr;
     grid-template-rows: 1fr;
 }
+.paginaSelecao header h1 {
+    grid-column: 3;
+    
+
+    text-align: center;
+    justify-self: flex-end;
+    margin-right: 40px;
+    align-self: center;
+    height: auto;
+}
 .paginaSelecao header button{
     margin-left: 40px;
     width: 100%;
@@ -116,4 +126,8 @@
     border-radius: 5%;
     border: 10px solid black;
     background-color: #00c3ff8e;
+}
+.Concluida{
+    
+    filter: grayscale(100%);
 }

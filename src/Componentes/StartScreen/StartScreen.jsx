@@ -1,9 +1,14 @@
 import { useState } from 'react'
 import './StartScreen.css'
+
 export default function StartScreen(props) {
 
   let startGame = function(){
     window.location.href = '/SinglePlayer/'
+  }
+
+  let creditos = function(){
+    window.location.href = '/creditos/'
   }
 
   return (
@@ -11,7 +16,7 @@ export default function StartScreen(props) {
       <main className='StartScreen'>
         <h1>Jump Adventure</h1>
         <button onClick={startGame}> Single Player</button>
-        <button> Creditos</button>
+        <button onClick={creditos}> Creditos</button>
       </main>
     </>
   )

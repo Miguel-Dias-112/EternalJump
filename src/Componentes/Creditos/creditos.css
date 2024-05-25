@@ -1,0 +1,57 @@
+.fundoCreditos {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #00c3ff8e;
+
+    overflow: scroll;
+}
+
+.creditos {
+    
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: max-content;
+    width: 80vw;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+}
+.creditos h2{
+    
+}
+.creditos p {
+    box-shadow: 5px 5px 5px gray;
+
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 120px;
+    margin: 0;
+    margin-bottom: 10px;
+    max-width: 500px;
+    background-color: #00c3ff8e;
+}
+.creditos ol{
+    padding: 0%;
+    min-width: 200px;
+    padding-bottom: 10px;
+    text-align: center  ;
+    list-style: none;
+}
+
+.creditos .botaoVoltar {
+    width: 60%;
+    max-width: 180px;
+    height: 60px;
+    border: 5px solid black;
+    background-color: #00c3ff8e;
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 5px;
+    margin-top: 50px;
+
+    margin-bottom: 50px;
+}
