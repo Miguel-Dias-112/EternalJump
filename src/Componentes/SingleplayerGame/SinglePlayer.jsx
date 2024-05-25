@@ -46,13 +46,18 @@ class SinglePlayerGame extends Component {
   }
   
       checaJogada(but){
+       
+
         // console.log('O estado anterior eh: ' + oldBut);
         // console.log('O botoes eh: ' + but);
         // console.log('O valor da jogada eh: ' + this.state.jogada);
-        let valoresWrongTime = but.includes("wrongTime");
-        let valoresVerde = but.includes("preview");  
-        console.log('verde',valoresWrongTime,but)    
-        return valoresVerde || valoresWrongTime;
+        let _but = but.slice(0,3);
+        let a = _but.includes("preview");
+        let b = _but.every((val) => val == 1);
+        if(a == true){ return true}
+        if  (b ==true ){ return false;}
+        if(c == true){ return false}
+        return true;
            
       }
       idNota = -1;
@@ -82,6 +87,8 @@ class SinglePlayerGame extends Component {
           }
       this.setState({ botoesType: botoes });
       let cor = this.state.botoesColor;
+      console.log('jogada',this.state.jogada)
+
       botoes.forEach((botão, index) => {
         if (botão === 1) {
           visivel[index] = 'visible';
@@ -108,6 +115,8 @@ class SinglePlayerGame extends Component {
       let id = botoes[3]
 
       if(this.idNota<id){
+        console.log('idNota',this.idNota,id,botoes)
+
         this.idNota = id
         const jogaValida = this.checaJogada(botoes);
         const ocorreuClick = this.state.jogada;
