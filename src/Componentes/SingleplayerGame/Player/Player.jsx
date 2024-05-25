@@ -174,6 +174,7 @@ class Player extends React.Component {
         this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,100,res)
         this.runAnims(canvas2C,imagensCorda,30,res)
         this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
+        this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,30,res)
 
       }
       else{

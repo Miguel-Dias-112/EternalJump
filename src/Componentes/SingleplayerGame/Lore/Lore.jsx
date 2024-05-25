@@ -1,5 +1,5 @@
 import './Lore.css'
-import lore2 from '../../../Assets/imagensPlaceHolder/k.png'
+import lore2 from '../../../Assets/imagensPlaceHolder/placeholder.png'
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

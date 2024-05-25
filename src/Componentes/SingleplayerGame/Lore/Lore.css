@@ -6,7 +6,7 @@
     z-index: 50;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: cesnter;
     align-items: center;
   
 }
@@ -16,6 +16,7 @@
 .fadeout{
     animation: aaa 0.5s;
 }
+
 .background{
     position: absolute;
     width: 100%;
@@ -54,6 +55,11 @@
     width: 60%;
     height: 50%;
     border-radius: 5px;
+}
+.small{
+    width: 25% !important;
+    height: 20% !important;
+
 }
 .slide section .text{
     width: 50%;

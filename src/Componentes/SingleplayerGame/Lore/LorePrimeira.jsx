@@ -1,6 +1,6 @@
 import './Lore.css'
 import lore1 from '../../../Assets/AnimPulo/0.png'
-import lore2 from '../../../Assets/imagensPlaceHolder/k.png'
+import lore2 from '../../../Assets/imagensPlaceHolder/placeholder.png'
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -45,7 +45,7 @@ export function LorePrimeira( props) {
                    <section>
                        <p className='text'>Era uma vez uma menina chamada raquel janaina, conhecida por sua coragem e decisões imaturas. </p>
                       
-                       <img src={lore1}></img>
+                       <img src={lore1} className='small' ></img>
 
                    </section>
                </SwiperSlide>
