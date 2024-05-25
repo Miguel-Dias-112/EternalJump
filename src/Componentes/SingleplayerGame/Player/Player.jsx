@@ -119,14 +119,14 @@ class Player extends React.Component {
     const idle = [idle1,idle2,idle1]
     const cordaImgs = [corda1,corda2,corda3,corda4,corda5,corda6,corda7,corda8,corda9,corda10,corda11,corda12,corda13,corda14,corda15,corda16,corda17]
     const mortePng = [morte1,morte2,morte3,morte4,morte5,morte6,morte7,morte8,morte9,morte10]
-    const batedor = [baterdor1,baterdor2,baterdor3,baterdor4,baterdor5,baterdor6]
+    const batedor = [baterdor1,baterdor2,baterdor3,baterdor4,baterdor5,baterdor6,baterdor1]
 
     var canvas = document.querySelector('#canvas');
     var canvas2 = document.querySelector('#canvas2');
     var seguradorCanva = document.querySelector('#segurador');
     var canvas2C = canvas2.getContext('2d');
     var c = canvas.getContext('2d');
-    var seguradorCanvactx = canvas.getContext('2d');
+    var seguradorCanvactx = seguradorCanva.getContext('2d');
 
     canvas.width= 130;
     canvas.height=120;
@@ -134,13 +134,16 @@ class Player extends React.Component {
     
     canvas2.width= 130
     canvas2.height=120
+    seguradorCanva.width= 130
+    seguradorCanva.height=120
 
     let imagensPulo = this.loadImages(pulo);
     let imagesIdle = this.loadImages(idle);
     let imagensCorda = this.loadImages(cordaImgs);
     let imagensMorte = this.loadImages(mortePng);
-    let baterdor = this.loadImages(batedor);
-    this.runAnims(seguradorCanvactx,baterdor,100,res)
+    let imagensBatedor = this.loadImages(batedor);
+    
+    this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
     this.runAnims(c,imagesIdle)
     this.runAnims(canvas2C,imagensCorda ,100,res)
 
@@ -153,9 +156,14 @@ class Player extends React.Component {
         this.dieonce = true;
       }
       if(this.props.pula){
-        this.fisicaPulo()
+        setTimeout(()=>{
+          this.fisicaPulo()
+          this.runAnims(c,imagensPulo,100,res)
+        },300)
+        
+
         this.runAnims(canvas2C,imagensCorda,30,res)
-        this.runAnims(c,imagensPulo,100,res)
+        this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
 
       }
       else{
@@ -174,7 +182,7 @@ class Player extends React.Component {
           <canvas id='canvas2' ></canvas>
         </div>
         <div className='Segurador'>
-          <canvas id='segurador' >s</canvas>
+          <canvas id='segurador' ></canvas>
 
         </div>
         <div id='x' className='Player'>
