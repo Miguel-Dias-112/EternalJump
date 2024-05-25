@@ -112,8 +112,9 @@ class SinglePlayerGame extends Component {
         console.log('jogada',this.state.jogada)
         console.log('jogadaValida',jogaValida)
         if(jogaValida && !ocorreuClick){
-          this.setState({vidas: this.state.vidas - 1, jogada: false });
+          this.setState({vidas: this.state.vidas - 1});
         }
+        this.setState({ jogada: false });
       }
       
       // setTimeout( () => {
