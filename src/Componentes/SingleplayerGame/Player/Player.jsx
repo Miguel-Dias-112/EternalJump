@@ -33,6 +33,10 @@ import baterdor4 from '../../../Assets/batedador/3.png'
 import baterdor5 from '../../../Assets/batedador/4.png'
 import baterdor6 from '../../../Assets/batedador/5.png'
 
+import batedorAnjo1 from '../../../Assets/batedorAnjo/0.png'
+import batedorAnjo2 from '../../../Assets/batedorAnjo/1.png'
+import batedorAnjo3 from '../../../Assets/batedorAnjo/2.png'
+
 import morte1 from '../../../Assets/morte/0.png'
 import morte2 from '../../../Assets/morte/1.png'
 import morte3 from '../../../Assets/morte/2.png'
@@ -120,32 +124,38 @@ class Player extends React.Component {
     const cordaImgs = [corda1,corda2,corda3,corda4,corda5,corda6,corda7,corda8,corda9,corda10,corda11,corda12,corda13,corda14,corda15,corda16,corda17]
     const mortePng = [morte1,morte2,morte3,morte4,morte5,morte6,morte7,morte8,morte9,morte10]
     const batedor = [baterdor1,baterdor2,baterdor3,baterdor4,baterdor5,baterdor6,baterdor1]
-
+    const batedorAnjo = [batedorAnjo1,batedorAnjo2,batedorAnjo3,batedorAnjo1]
     var canvas = document.querySelector('#canvas');
     var canvas2 = document.querySelector('#canvas2');
     var seguradorCanva = document.querySelector('#segurador');
+    var seguradorAnjoCanva = document.querySelector('#seguradorAnjo');
+
     var canvas2C = canvas2.getContext('2d');
     var c = canvas.getContext('2d');
     var seguradorCanvactx = seguradorCanva.getContext('2d');
+    var seguradorAnjoCanvactx = seguradorAnjoCanva.getContext('2d');
 
+    const res=[130,120]
     canvas.width= 130;
     canvas.height=120;
-    const res=[130,120]
     
     canvas2.width= 130
     canvas2.height=120
     seguradorCanva.width= 130
     seguradorCanva.height=120
+    seguradorAnjoCanva.width= 130
+    seguradorAnjoCanva.height=120
 
     let imagensPulo = this.loadImages(pulo);
     let imagesIdle = this.loadImages(idle);
     let imagensCorda = this.loadImages(cordaImgs);
     let imagensMorte = this.loadImages(mortePng);
     let imagensBatedor = this.loadImages(batedor);
-    
+    let imagensbatedorAnjo = this.loadImages(batedorAnjo);
     this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
     this.runAnims(c,imagesIdle)
     this.runAnims(canvas2C,imagensCorda ,100,res)
+    this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,30,res)
 
     setInterval(()=>{
       if(this.dieonce){
@@ -161,7 +171,7 @@ class Player extends React.Component {
           this.runAnims(c,imagensPulo,100,res)
         },300)
         
-
+        this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,100,res)
         this.runAnims(canvas2C,imagensCorda,30,res)
         this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
 
@@ -183,13 +193,12 @@ class Player extends React.Component {
         </div>
         <div className='Segurador'>
           <canvas id='segurador' ></canvas>
-
         </div>
         <div id='x' className='Player'>
-          <canvas id='canvas' >
-          
-          </canvas>
-          
+          <canvas id='canvas' ></canvas>
+        </div>
+        <div className='Segurador direita'>
+          <canvas id='seguradorAnjo' ></canvas>
         </div>
       </>
     )
