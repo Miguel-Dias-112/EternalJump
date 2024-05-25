@@ -1,6 +1,6 @@
 import './Lore.css'
-import lore1 from '../../../Assets/imagensPlaceHolder/placeholder1.png'
-import lore2 from '../../../Assets/imagensPlaceHolder/placeholder2.png'
+import lore1 from '../../../Assets/AnimPulo/0.png'
+import lore2 from '../../../Assets/imagensPlaceHolder/k.png'
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

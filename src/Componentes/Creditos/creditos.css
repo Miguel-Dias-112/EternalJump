@@ -1,25 +1,46 @@
 .fundoCreditos {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     width: 100vw;
     background-color: #00c3ff8e;
+
     overflow: scroll;
 }
 
 .creditos {
+    
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
     height: max-content;
     width: 80vw;
     border-left: 5px solid black;
     border-right: 5px solid black;
 }
-
+.creditos h2{
+    
+}
 .creditos p {
-    max-width: 80%;
+    box-shadow: 5px 5px 5px gray;
+
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 120px;
+    margin: 0;
+    margin-bottom: 10px;
+    max-width: 500px;
+    background-color: #00c3ff8e;
+}
+.creditos ol{
+    padding: 0%;
+    min-width: 200px;
+    padding-bottom: 10px;
+    text-align: center  ;
+    list-style: none;
 }
 
 .creditos .botaoVoltar {
@@ -30,4 +51,7 @@
     background-color: #00c3ff8e;
     box-shadow: 5px 5px 5px gray;
     border-radius: 5px;
+    margin-top: 50px;
+
+    margin-bottom: 50px;
 }
