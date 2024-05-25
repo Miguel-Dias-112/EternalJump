@@ -16,17 +16,15 @@ import {
 
 function App() {
   let dadosCookie = {
-    fezTutorial: true,
+    fezTutorial: false,
     fasesConcluidas: [1,0,0]
   }
 
   const [cookies, setCookie] = useCookies(['dadosCookie']);
   
   if (cookies.dadosCookie === undefined) {
-    console.log("Isso está indefinido");
     setCookie('dadosCookie', dadosCookie );
   }
-  setCookie('dadosCookie', dadosCookie );
 
   console.log(cookies);
 
