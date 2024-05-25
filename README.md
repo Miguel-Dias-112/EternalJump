@@ -14,6 +14,11 @@ Guilherme Martins
 Emerson Caneschi
 
 
+### Produção Musical
+Cauã Moreno
+Guilherme Martins
+
+
 ### Líder de Projeto
 Miguel Dias
 
@@ -23,10 +28,6 @@ Miguel Dias
 Cauã Moreno
 Estêvão Fiorilo
 Gabriel Basílio
-
-
-### Produção Musical
-Cauã Moreno
 
 
 ### Revisão
