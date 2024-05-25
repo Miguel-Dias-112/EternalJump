@@ -3,7 +3,7 @@ import './FaseSelection.css'
 
 
 import { useCookies } from 'react-cookie';
-
+import seta from '../../../Assets/seta.png'
 
 
 export function FaseSelection( props) {
@@ -38,7 +38,6 @@ export function FaseSelection( props) {
             <header>
             <h1>fases</h1>
                 <button onClick={()=>{window.location.href = '../'}}>
-                ←   
                 </button>
                 
             </header>
