@@ -1,5 +1,5 @@
 import './creditos.css'
-
+import inovalogo from '../../Assets/Inova.png'
 export function Creditos() {
     let voltarPagina = function(){
         window.location.href = '/'
@@ -14,10 +14,7 @@ export function Creditos() {
         
         <p>Jump your way to heaven foi um jogo desenvolvido para a React Jam 2023, se baseando na história de Raquel Janaina, uma criança que usa de pular corda para atingir seus objetivos. O período de desenvolvimento do jogo foi de 18/05/24 até 26/05/24, e contou com a participação de estudantes da UFJF e apoio do projeto Inova Games.</p>
         
-        <h2>Lider de Projeto</h2>
-        <ol>
-        <li>Miguel Dias</li>
-        </ol>
+       
 
         <h2>Animações e Cenários</h2>
         <ol>
@@ -28,6 +25,7 @@ export function Creditos() {
         <h2>Produção Musical</h2>
         <ol>
         <li>Cauã Moreno</li>
+        <li>Miguel Dias</li>
         <li>Guilherme Martins</li>
         </ol>
         
@@ -45,11 +43,13 @@ export function Creditos() {
         <li>Emerson Caneschi</li>
         </ol>
         
-
-        <h2>Apoio</h2>
+        <h2>Lider de Projeto</h2>
         <ol>
-        <li>Inova Games - UFJF</li>
+        <li>Miguel Dias</li>
         </ol>
+        <h2>Apoio</h2>
+        <img src={inovalogo}></img>
+
         
 
 

@@ -16,8 +16,8 @@ import {
 
 function App() {
   let dadosCookie = {
-    fezTutorial: false,
-    fasesConcluidas: [1,0,0]
+    fezTutorial: true,
+    fasesConcluidas: [1,1,0]
   }
 
   const [cookies, setCookie] = useCookies(['dadosCookie']);
@@ -37,6 +37,7 @@ function App() {
           <Route path="/singleplayer/" element={<SinglePlayerGame  fase={0}/>} />
           <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={1}/>} />
           <Route path="/singleplayer/fase2" element={<SinglePlayerGame  fase={2}/>} />
+          <Route path="/singleplayer/fase3" element={<SinglePlayerGame  fase={3}/>} />
 
         </Routes>
       </BrowserRouter>

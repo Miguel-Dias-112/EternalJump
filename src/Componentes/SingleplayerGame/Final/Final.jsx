@@ -1,4 +1,5 @@
 import './Final.css'
+import back from '../../../Assets/seta.png';
 import botoesplaceholder from '../../../Assets/imagensPlaceHolder/adamsandler.jpeg';
 import { useCookies } from 'react-cookie';
 
@@ -38,11 +39,11 @@ export function Final(props) {
                     <h1>Você perdeu!</h1>
                     <div className='botoes'>
                         <div>
-                            <img className='icone' onClick={props.back} src={botoesplaceholder}/>
+                            {/* <img className='icone' onClick={props.back} src={botoesplaceholder}/> */}
                             <p onClick={props.back}>Voltar</p>
                         </div>
                         <div>
-                            <img className='icone' onClick={recarregarPagina} src={botoesplaceholder}/>
+                            {/* <img className='icone' onClick={recarregarPagina} src={botoesplaceholder}/> */}
                             <p onClick={recarregarPagina}>Repetir</p>
                         </div>
                     </div>
@@ -63,11 +64,11 @@ export function Final(props) {
                 <h1>Você ganhou!</h1>
                 <div className='botoes'>
                     <div>
-                        <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/>
+                        {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
                         <p onClick={props.back}>Voltar</p>
                     </div>
                     <div>
-                        <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" />
+                        {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
                         <p onClick={proximo}>Próximo</p>
                     </div>
                 </div>

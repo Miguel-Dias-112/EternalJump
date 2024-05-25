@@ -38,6 +38,7 @@ export function FaseSelection( props) {
             <header>
             <h1>fases</h1>
                 <button onClick={()=>{window.location.href = '../'}}>
+                ←
                 </button>
                 
             </header>
