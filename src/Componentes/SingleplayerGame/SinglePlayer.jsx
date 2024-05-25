@@ -3,6 +3,8 @@ import './SinglePlayer.css';
 import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
 import musicaf1 from '../../Assets/musicas/Inferno.mp3';
+import musicaf2 from '../../Assets/musicas/Inferno.mp3';
+
 import getFase from '../../Data/Fases';
 import { useCookies } from 'react-cookie';
 import { FaseSelection } from './FasesSelection/FaseSelection.jsx';
@@ -142,8 +144,8 @@ class SinglePlayerGame extends Component {
     switch (fase) {
       case 1:
         return musicaf1;
-        //case 2:
-        //  return musicaf2;
+        case 2:
+         return musicaf2;
         //case 3:
         //  return musicaf3;
       }

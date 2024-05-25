@@ -52,8 +52,8 @@ function inter(segundos, padrão, gambiarra, meia){
 const fases ={
     1:{
         intervalos : []
-        .concat(inter(4, [1,1,1,0],true))
-        .concat(inter(4, [1,1,1,1],false))
+        .concat(inter(4, ["preview","preview","preview",0],true))
+        .concat(inter(4, ["preview","preview","preview",1],false))
 
         .concat(inter(4, [1,1,2,2],false))
         .concat(inter(4, [1,1,2,3],false))
