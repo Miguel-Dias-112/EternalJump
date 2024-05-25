@@ -32,7 +32,7 @@ export function Lore( props) {
             )
         case 2: 
             return (
-                <LorePrimeira click={props.click()}/>
+                <LorePrimeira click={props.click}/>
             )
         default:
             break;
