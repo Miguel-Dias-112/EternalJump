@@ -14,7 +14,7 @@ export default function StartScreen(props) {
   return (
     <>
       <main className='StartScreen'>
-        <h1>Jump Adventure</h1>
+        <h1>Jump Your Way to Heaven</h1>
         <button onClick={startGame}> Single Player</button>
         <button onClick={creditos}> Creditos</button>
       </main>
