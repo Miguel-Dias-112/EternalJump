@@ -1,8 +1,37 @@
-# React + Vite
+# Jump your way to heaven
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jump your way to heaven foi um jogo desenvolvido para a React Jam 2023, se baseando na história de Raquel Janaina, uma criança que usa de pular corda para atingir seus objetivos. O período de desenvolvimento do jogo foi de 18/05/24 até 26/05/24, e contou com a participação de estudantes da UFJF e apoio do projeto Inova Games.
 
-Currently, two official plugins are available:
+## Como Jogar
+O jogo está disponível [aqui](https://react-jam-game.vercel.app). 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para passar de fases, basta que você acerte os blocos verdes no tempo correto, sem perder suas vidas.
+
+## Créditos
+
+### Animações e Cenários
+Guilherme Martins
+Emerson Caneschi
+
+
+### Líder de Projeto
+Miguel Dias
+
+
+### Programação
+Miguel Dias
+Cauã Moreno
+Estêvão Fiorilo
+Gabriel Basílio
+
+
+### Produção Musical
+Cauã Moreno
+
+
+### Revisão
+Emerson Caneschi
+
+
+### Apoio
+Inova Games - UFJF
