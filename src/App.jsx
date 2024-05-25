@@ -38,7 +38,7 @@ function App() {
           <Route path="/creditos/" element={<Creditos />} />
           <Route path="/singleplayer/" element={<SinglePlayerGame  fase={0}/>} />
           <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={1}/>} />
-          <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={2}/>} />
+          <Route path="/singleplayer/fase2" element={<SinglePlayerGame  fase={2}/>} />
 
         </Routes>
       </BrowserRouter>

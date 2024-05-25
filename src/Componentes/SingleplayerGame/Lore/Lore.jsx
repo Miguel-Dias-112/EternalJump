@@ -30,11 +30,11 @@ export function Lore( props) {
             return (
                 <LorePrimeira click = {props.click} />
             )
-        /*case 2: 
+        case 2: 
             return (
-                <LoreSegunda click={props.click()}/>
+                <LorePrimeira click={props.click()}/>
             )
-        */default:
+        default:
             break;
         }
     }
