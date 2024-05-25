@@ -7,12 +7,16 @@ export default function StartScreen(props) {
     window.location.href = '/SinglePlayer/'
   }
 
+  let creditos = function(){
+    window.location.href = '/creditos/'
+  }
+
   return (
     <>
       <main className='StartScreen'>
         <h1>Jump Adventure</h1>
         <button onClick={startGame}> Single Player</button>
-        <button> Creditos</button>
+        <button onClick={creditos}> Creditos</button>
       </main>
     </>
   )
