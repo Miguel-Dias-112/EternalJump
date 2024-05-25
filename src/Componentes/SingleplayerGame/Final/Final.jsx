@@ -1,5 +1,4 @@
 import './Final.css'
-import back from '../../../Assets/seta.png';
 import botoesplaceholder from '../../../Assets/imagensPlaceHolder/adamsandler.jpeg';
 import { useCookies } from 'react-cookie';
 
@@ -28,7 +27,7 @@ export function Final(props) {
     }
     const proximo = () => {
         let biscuit = cookies.dadosCookie;
-        
+
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
         const fasesConcluidas= dados.fasesConcluidas

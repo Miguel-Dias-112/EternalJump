@@ -270,7 +270,7 @@ class SinglePlayerGame extends Component {
           {/* <img src={sprite} alt="" /> */}
         </header>
         <section className='GameArea'>
-          <section className='Game'>
+          <section className={'Game GameCenario'+this.props.fase} >
             <div id="contadorCtn" className = 'Contador'>
                 <div> {this.state.cronometroInicio}</div>
             </div>

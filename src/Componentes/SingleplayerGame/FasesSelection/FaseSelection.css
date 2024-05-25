@@ -132,3 +132,9 @@
     
     filter: grayscale(100%);
 }
+.fase0{
+    background-image: url('../../../Assets/Cenarios/1.png');
+}
+.fase1{
+    background-image: url('../../../Assets/Cenarios/2.png');
+}

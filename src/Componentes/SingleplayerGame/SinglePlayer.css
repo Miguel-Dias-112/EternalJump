@@ -60,7 +60,7 @@
     align-items: center;
     
 }
-.GameArea .Game{
+.GameArea .Game { 
     background-color: white;
     border: 5px solid black;
     box-shadow: 5px 5px 15px gray;
@@ -76,10 +76,7 @@
     border-radius: 5px;
 
     background: white;
-    /* background: url('../../Assets/Cenario.png'); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+   
 
     display: grid;
     justify-content: center;
@@ -89,7 +86,19 @@
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
 }
+.GameCenario1{
+    background: url(/src//Assets/Cenarios/1.png) !important;  
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+.GameCenario2{
+    background: url(/src//Assets/Cenarios/2.png) !important;  
 
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
 .GameArea .GameControls{
     display: flex;
     justify-content: flex-start;

@@ -3,7 +3,6 @@ import './FaseSelection.css'
 
 
 import { useCookies } from 'react-cookie';
-import seta from '../../../Assets/seta.png'
 
 
 export function FaseSelection( props) {
@@ -47,9 +46,9 @@ export function FaseSelection( props) {
                 <image  className='twotothree'></image>
                    { fasesConcluidas.map((fase, index) => {
                         if(fase === 1){
-                            return <div className = 'seletorDeFase Concluida' style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+                            return <div className = {'seletorDeFase Concluida fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
                         }else{
-                            return <div className = 'seletorDeFase ' style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+                            return <div className = {'seletorDeFase Concluida fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
 
                         }
                     })
