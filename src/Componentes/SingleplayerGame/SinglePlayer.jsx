@@ -3,7 +3,7 @@ import './SinglePlayer.css';
 import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
 import musicaf1 from '../../Assets/musicas/Inferno.mp3';
-import musicaf2 from '../../Assets/musicas/Inferno.mp3';
+import musicaf2 from '../../Sons/PurgatorioF.mp3';
 
 import getFase from '../../Data/Fases';
 import { useCookies } from 'react-cookie';

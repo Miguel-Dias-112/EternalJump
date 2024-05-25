@@ -16,8 +16,8 @@ import {
 
 function App() {
   let dadosCookie = {
-    fezTutorial: false,
-    fasesConcluidas: [0,0,0]
+    fezTutorial: true,
+    fasesConcluidas: [1,0,0]
   }
 
   const [cookies, setCookie] = useCookies(['dadosCookie']);
@@ -26,6 +26,7 @@ function App() {
     console.log("Isso está indefinido");
     setCookie('dadosCookie', dadosCookie );
   }
+  setCookie('dadosCookie', dadosCookie );
 
   console.log(cookies);
 
