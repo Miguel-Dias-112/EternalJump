@@ -16,21 +16,31 @@ export function Creditos() {
         
        
 
-        <h2>Animações e Cenários</h2>
+        <h2>Diretor de Arte</h2>
+        <ol>
+        <li>Guilherme Martins</li>
+        </ol>
+
+        <h2>Animações & Sprites</h2>
+
         <ol>
         <li>Guilherme Martins</li>
         <li>Emerson Caneschi</li>
-        </ol>
+        <li>Miguel Dias</li>
 
+        </ol>
+        
         <h2>Produção Musical</h2>
         <ol>
+        <li>Guilherme Martins</li>
         <li>Cauã Moreno</li>
         <li>Miguel Dias</li>
-        <li>Guilherme Martins</li>
         </ol>
+        <h2>Lider de técnico</h2>
+        <ol>
+        <li>Miguel Dias</li>
         
-        
-        <h2>Programação</h2>
+        <h2>Programadores</h2>
         <ol>
         <li>Miguel Dias</li>
         <li>Cauã Moreno</li>
@@ -43,9 +53,7 @@ export function Creditos() {
         <li>Emerson Caneschi</li>
         </ol>
         
-        <h2>Lider de Projeto</h2>
-        <ol>
-        <li>Miguel Dias</li>
+        
         </ol>
         <h2>Apoio</h2>
         <img src={inovalogo}></img>
