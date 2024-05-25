@@ -1,7 +1,6 @@
 import './Lore.css'
-import t1 from '../../../Assets/tutorial/t1.png'
-import t2 from '../../../Assets/tutorial/t2.png'
-import t3 from '../../../Assets/tutorial/t3.png'
+import lore1 from '../../../Assets/AnimPulo/0.png'
+import lore2 from '../../../Assets/imagensPlaceHolder/placeholder.png'
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,15 +8,10 @@ import { useCookies } from 'react-cookie';
 import { Pagination } from 'swiper/modules';
 
 
-export function Tutorial( props ) {
-    
-    const [cookies, setCookie] = useCookies(['dadosCookie']);
-    let newBiscuit = cookies.dadosCookie ;
-    newBiscuit.fezTutorial = true;
+export function Lore1( props) {
     
     let _display;
-    
-    
+  
     let mostraFase = () => {
         let loreCtn = document.getElementById('lore');
         let loreFundo = document.getElementById('back');
@@ -27,10 +21,9 @@ export function Tutorial( props ) {
             loreFundo.style.display = 'none';
         },501)
         setTimeout(() => {props.click()}, 505)
-        setCookie('dadosCookie', newBiscuit);
 
     }
-    console.log('Tutorial página')
+
     return (
         <>
          <div id='back' className='background'>
@@ -50,28 +43,22 @@ export function Tutorial( props ) {
 
                <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Clique nos botões assim que eles ficarem verdes.</p>
+                       <p className='text'>Era uma vez uma menina chamada raquel janaina, conhecida por sua coragem e decisões imaturas. </p>
                       
-                       <img src={t1}></img>
+                       <img src={lore1} className='small' ></img>
 
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                       <p  className='text'>Os botões seguem o ritmo da música.</p>
-                       <img src={t2}></img>
+                       <p  className='text'>Um dirincando e apareceram duas criaturas que a desafiaram</p>
+                       <img src={lore2}></img>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                       <p  className='text'>Cuidado para não perder o botão verde ou clicar nos botões vermelhos ou perderá uma vida!</p>
-                       <img src={t3}></img>
-                   </section>
-               </SwiperSlide>
-               <SwiperSlide className='slide'>
-                   <section>
-                       <p  className='text'>Não se perca e ganhe o máximo de pontos. Bom jogo!</p>
-                       <button onClick={mostraFase}>Fechar tutorial</button>
+                       <p  className='text'>Raquel, determinada e sem nada pra fazer, aceitou a hora! </p>
+                       <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>
            </Swiper>

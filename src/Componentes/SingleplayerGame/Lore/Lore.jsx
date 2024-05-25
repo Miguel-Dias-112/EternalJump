@@ -5,8 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useCookies } from 'react-cookie';
 import { Pagination } from 'swiper/modules';
-import { LorePrimeira } from './LorePrimeira';
 import { Tutorial } from './Tutorial';
+import { Lore1 } from './Lore1';
+import { Lore2 } from './Lore2';
+import { Lore3 } from './Lore3';
 
 export function Lore( props) {
     
@@ -28,13 +30,17 @@ export function Lore( props) {
         switch (faseAtual) {
         case 1: 
             return (
-                <LorePrimeira click = {props.click} />
+                <Lore1 click = {props.click} />
             )
-        /*case 2: 
+        case 2: 
             return (
-                <LoreSegunda click={props.click()}/>
+                <Lore2 click={props.click}/>
             )
-        */default:
+        case 3: 
+            return (
+                <Lore3 click={props.click}/>
+            )
+        default:
             break;
         }
     }
