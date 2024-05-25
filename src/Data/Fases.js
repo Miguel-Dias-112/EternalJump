@@ -7,9 +7,7 @@ function inter(segundos, padrão, gambiarra,m){
     let vetor = [];
     //jogada dificil
     if(segundos==1){
-        console.log('segundos',segundos)
-        console.log('segundos',segundos)
-
+      
         for (let i = 0; i < (3); i++) {
             
             let padraoSatBaixa = padrão.slice()
@@ -93,8 +91,8 @@ let m120BPM = 0.5000000000000000000000000000000
 const fases ={
     1:{
         intervalos : []
-        .concat(inter(4, ["preview","preview","preview",0],true,m140BPM))
-        .concat(inter(4, ["preview","preview","preview",1],false,m140BPM))
+        .concat(inter(4, [1,1,1,0],true,m140BPM))
+        .concat(inter(4, [1,1,1,1],false,m140BPM))
 
         .concat(inter(4, [1,1,2,2],false, m140BPM))
         .concat(inter(4, [1,1,2,3],false, m140BPM))

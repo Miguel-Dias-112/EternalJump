@@ -121,12 +121,19 @@ class SinglePlayerGame extends Component {
         this.idNota = id
         const jogaValida = this.checaJogada(botoes);
         const ocorreuClick = this.state.jogada;
-        console.log('jogada',this.state.jogada)
-        console.log('jogadaValida',jogaValida)
-        if(jogaValida && !ocorreuClick){
-          this.setState({vidas: this.state.vidas - 1});
+        console.log("jogadaValida",jogaValida,"ocorreuClick",ocorreuClick)
+     
+        if(jogaValida){
+          if(!ocorreuClick){
+            console.log('errou',botoes,);
+            this.setState({vidas: this.state.vidas - 1});
+          }else{
+            this.setState({jogada: false});
+          }
+        }else{
+          this.setState({jogada: true});
         }
-        this.setState({ jogada: false });
+
       }
       
       // setTimeout( () => {

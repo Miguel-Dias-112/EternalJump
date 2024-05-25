@@ -12,19 +12,26 @@ export function Final(props) {
     const recarregarPagina = () => {
         if(tipoTela === 1){
             let biscuit = cookies.dadosCookie;
-            biscuit.fasesConsluidas[fase] = 1;
+            
+            
+            biscuit.fasesConsluidas[fase-1] = 1;
             setCookie("dadosCookie", biscuit)
         }
         window.location.reload();   
     };
-
+    const voltarGanhou = function(){
+        let biscuit = cookies.dadosCookie;
+        biscuit.fasesConcluidas[fase-1] = 1;
+        setCookie("dadosCookie", biscuit)
+        props.back();
+        
+    }
     const proximo = () => {
         let biscuit = cookies.dadosCookie;
-        console.log(biscuit)
-        biscuit.fasesConsluidas[fase] = 1;
-        setCookie("dadosCookie", biscuit)
         
-        const fasesConcluidas= dados.fasesConcluidas[0,0,0]
+        biscuit.fasesConcluidas[fase-1] = 1;
+        setCookie("dadosCookie", biscuit)
+        const fasesConcluidas= dados.fasesConcluidas
         window.location.href = '/SinglePlayer/fase'+(fase+1);
         
     }
@@ -65,7 +72,7 @@ export function Final(props) {
                 <div className='botoes'>
                     <div>
                         {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
-                        <p onClick={props.back}>Voltar</p>
+                        <p onClick={voltarGanhou}>Voltar</p>
                     </div>
                     <div>
                         {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
