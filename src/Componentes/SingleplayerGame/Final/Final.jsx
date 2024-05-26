@@ -23,7 +23,7 @@ export function Final(props) {
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
         props.back();
-        
+
     }
     const proximo = () => {
         let biscuit = cookies.dadosCookie;
@@ -31,12 +31,13 @@ export function Final(props) {
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
         const fasesConcluidas= dados.fasesConcluidas
-        window.location.href = '/SinglePlayer/fase'+(fase+1);
-        
+        let x = document.getElementById('fase'+(fase+1))
+        x.click()
+
     }
     const final = () => {
-        window.location.href = '/finalizacao/';
-        
+        let x = document.getElementById('finalizacao')
+        x.click()        
     }
     
     if(tipoTela === 2)

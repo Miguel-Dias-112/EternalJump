@@ -1,4 +1,4 @@
-import { useState } from 'react'
+    import { useState } from 'react'
 import './App.css'
 import Jogador from './Jogador.jsx'
 import HistoriaFinal from './Componentes/HistoriaFinal/historiafinal.jsx'
@@ -35,10 +35,11 @@ function App() {
     <>
      
       <HashRouter >
+      <Link id='start' to='/'></Link>
       <Link id='singleplayer' to='/singleplayer'></Link>
-      <Link id='fase1' to='/'></Link>
-      <Link id='fase2' to='/ProjectsPage'></Link>
-      <Link id='fase3' to='/Main2'></Link>
+      <Link id='fase1' to='/singleplayer/fase1'></Link>
+      <Link id='fase2' to='/singleplayer/fase2'></Link>
+      <Link id='fase3' to='/singleplayer/fase3'></Link>
       <Link id='creditos' to='/creditos'></Link>
       <Link id='finalizacao' to='/finalizacao'></Link>
       

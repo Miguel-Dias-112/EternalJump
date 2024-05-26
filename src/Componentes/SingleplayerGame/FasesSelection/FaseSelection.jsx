@@ -7,6 +7,11 @@ import { useCookies } from 'react-cookie';
 
 
 export function FaseSelection( props) {
+    const backMenu= function() {
+        let x = document.getElementById('start');
+        x.click();
+        window.location.reload();
+      }
     const [cookies, setCookie] = useCookies(['dadosCookie']);
     let dados = cookies.dadosCookie;
     let _display
@@ -20,12 +25,14 @@ export function FaseSelection( props) {
         const faseAnterior = faseAtual -2
         const faseAnteriorConcluida = fasesConcluidas[faseAnterior]
         if(faseAtual===1){
-            window.location.href = '/SinglePlayer/fase'+faseAtual;
+            let x = document.getElementById('fase'+faseAtual)
+            x.click()
             return
         }
         
         if( faseAnteriorConcluida === 1 ){
-            window.location.href = '/SinglePlayer/fase'+faseAtual;
+            let x = document.getElementById('fase'+faseAtual)
+            x.click()
         }else{
             let bloqueio = document.getElementById('Bloqueio')
             let titulo = document.getElementById('Titulo')
@@ -56,7 +63,7 @@ export function FaseSelection( props) {
         <div style={{display:_display}} className = 'paginaSelecao'>
             <header>
             <h1>fases</h1>
-                <button onClick={()=>{window.location.href = '../'}}>
+                <button onClick={backMenu}>
                 <img className='seta' src={setaBack} alt="←" />
                 </button>
                 
