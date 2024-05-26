@@ -5,6 +5,8 @@ import { useCookies } from 'react-cookie';
 export function Final(props) {
     const tipoTela = props.tipo;
     const fase = props.fase;
+    let finalCtn = document.getElementById('backFim');
+
     const [cookies, setCookie] = useCookies(['dadosCookie']);
     let dados = cookies.dadosCookie;
 
@@ -16,14 +18,15 @@ export function Final(props) {
             biscuit.fasesConsluidas[fase-1] = 1;
             setCookie("dadosCookie", biscuit)
         }
-        window.location.reload();   
+        finalCtn.style.display = "none";
+        window.location.reload();
     };
     const voltarGanhou = function(){
         let biscuit = cookies.dadosCookie;
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
+        finalCtn.style.display = "none";
         props.back();
-
     }
     const proximo = () => {
         let biscuit = cookies.dadosCookie;
@@ -32,11 +35,13 @@ export function Final(props) {
         setCookie("dadosCookie", biscuit)
         const fasesConcluidas= dados.fasesConcluidas
         let x = document.getElementById('fase'+(fase+1))
+        finalCtn.style.display = "none";
         x.click()
 
     }
     const final = () => {
         let x = document.getElementById('finalizacao')
+        finalCtn.style.display = "none";
         x.click()        
     }
     
@@ -44,7 +49,7 @@ export function Final(props) {
         { 
             return(
                 <>
-                <div className='background' >
+                <div className='background' id='backFim'>
 
                 <div className="final">
                     <h1>Você perdeu!</h1>
@@ -70,7 +75,7 @@ export function Final(props) {
         {
             return(
                 <>
-                <div className='background' >
+                <div className='background' id='backFim'>
     
                 <div className="final">
                     <h1>Você ganhou!</h1>
@@ -95,7 +100,7 @@ export function Final(props) {
             {
                 return(
                     <>
-                    <div className='background' >
+                    <div className='background' id='backFim'>
         
                     <div className="final">
                         <h1>Você ganhou!</h1>
