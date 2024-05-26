@@ -60,7 +60,7 @@ export function Final(props) {
                 </>
             )
         };
-    if(props.tipo === 1)
+    if(tipoTela === 1)
     {
         return(
             <>
@@ -85,6 +85,27 @@ export function Final(props) {
             </>
         )
     };
+    if(tipoTela === 1 && fase === 3)
+        {
+            return(
+                <>
+                <div className='background' >
+    
+                <div className="final">
+                    <h1>Você ganhou!</h1>
+                    <div className='botoes'>
+                        <div>
+                            {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
+                            <p onClick={voltarGanhou}>Voltar</p>
+                        </div>
+                    </div>
+                </div>
+    
+                </div>
+            
+                </>
+            )
+        };
     
     let _display = 'none';
     return (<div style={{display:_display}} />);
