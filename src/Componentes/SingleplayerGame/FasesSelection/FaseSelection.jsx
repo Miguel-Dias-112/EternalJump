@@ -27,12 +27,15 @@ export function FaseSelection( props) {
         if(faseAtual===1){
             let x = document.getElementById('fase'+faseAtual)
             x.click()
+            window.location.reload();
             return
         }
         
         if( faseAnteriorConcluida === 1 ){
             let x = document.getElementById('fase'+faseAtual)
             x.click()
+            window.location.reload();
+
         }else{
             let bloqueio = document.getElementById('Bloqueio')
             let titulo = document.getElementById('Titulo')
@@ -79,12 +82,11 @@ export function FaseSelection( props) {
                         if(index==0){
                             return <div className = {'seletorDeFase fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
                         }
-                        if(fase === 1){
-                            return <div className = {'seletorDeFase fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
-                        }else{
-                            return <div className = {'seletorDeFase Concluida fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
-
+                        if(fasesConcluidas[index-1] === 1){
+                            return <div className = {'seletorDeFase  fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
                         }
+                        return <div className = {'seletorDeFase Concluida fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+
                     })
                     }
                    

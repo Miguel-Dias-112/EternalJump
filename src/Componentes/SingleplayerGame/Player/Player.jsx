@@ -72,7 +72,7 @@ class Player extends React.Component {
      
       setTimeout(()=>{
         var canvas = document.querySelector('#canvas');
-        c.clearRect(0,0,canvas.width,canvas.height);
+        c.clearRect(0,0,130,120);
         c.drawImage(images[i],0,0,res[0],res[1  ]);
         i++;
         if(i === images.length){

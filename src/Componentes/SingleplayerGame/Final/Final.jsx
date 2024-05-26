@@ -5,7 +5,6 @@ import { useCookies } from 'react-cookie';
 export function Final(props) {
     const tipoTela = props.tipo;
     const fase = props.fase;
-    let finalCtn = document.getElementById('backFim');
 
     const [cookies, setCookie] = useCookies(['dadosCookie']);
     let dados = cookies.dadosCookie;
@@ -18,6 +17,8 @@ export function Final(props) {
             biscuit.fasesConsluidas[fase-1] = 1;
             setCookie("dadosCookie", biscuit)
         }
+        let finalCtn = document.getElementById('backFim');
+
         finalCtn.style.display = "none";
         window.location.reload();
     };
@@ -25,6 +26,7 @@ export function Final(props) {
         let biscuit = cookies.dadosCookie;
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
+        let finalCtn = document.getElementById('backFim');
         finalCtn.style.display = "none";
         props.back();
     }
@@ -35,12 +37,17 @@ export function Final(props) {
         setCookie("dadosCookie", biscuit)
         const fasesConcluidas= dados.fasesConcluidas
         let x = document.getElementById('fase'+(fase+1))
+        let finalCtn = document.getElementById('backFim');
+
         finalCtn.style.display = "none";
+
         x.click()
 
     }
     const final = () => {
         let x = document.getElementById('finalizacao')
+        let finalCtn = document.getElementById('backFim');
+
         finalCtn.style.display = "none";
         x.click()        
     }
