@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SinglePlayer.css';
 import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
-import musicaf1 from '../../Assets/musicas/Inferno.mp3';
+import musicaf1 from '../../Sons/Inferno.mp3';
 import musicaf2 from '../../Sons/PurgatorioF.mp3';
 import musicaf3 from '../../Sons/spiders.mp3';
 
@@ -57,10 +57,9 @@ class SinglePlayerGame extends Component {
         let b = _but.every((val) => val == 1);
         if(a == true){ return true}
         if  (b ==true ){ return false;}
-        if(c == true){ return false}
-        return true;
-           
+        return true;     
       }
+
       idNota = -1;
       start(){
         
@@ -86,6 +85,11 @@ class SinglePlayerGame extends Component {
             audio.pause();
             return;
           }
+
+          if(document.hidden){
+            window.location.reload();
+          }
+
       this.setState({ botoesType: botoes });
       let cor = this.state.botoesColor;
       console.log('jogada',this.state.jogada)
@@ -125,7 +129,11 @@ class SinglePlayerGame extends Component {
      
         if(jogaValida){
           if(!ocorreuClick){
-            console.log('errou',botoes,);
+            let audio = document.getElementById('audio');
+            audio.volume = 0.2
+
+            audio.play()
+            console.log('Entrou no audo')
             this.setState({vidas: this.state.vidas - 1});
           }else{
             this.setState({jogada: false});
@@ -205,25 +213,23 @@ class SinglePlayerGame extends Component {
       return;
     }
    
-    // console.log('click',tipo)
     if(tipo==1){
       this.setState({acerto:false,vidas: this.state.vidas - 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
+      let audio = document.getElementById('audio');
+      audio.volume = 0.2
+
+      audio.play();
       window.setTimeout(() => {
         this.setState({pula: false, acerto:true,visivel: ['hidden','hidden','hidden'] });
       },1100)
-      // console.log('errou',this.state.vidas);
+
     }
     if(tipo==2){
       this.setState({pontos: this.state.pontos + 1, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
-      // console.log('acertou');
-      //let audio = document.getElementById('audio');
-      //audio.play();
+
     }
     if(tipo=="wrongTime"){
       this.setState({pontos: this.state.pontos + 2, pula: true, visivel: ['hidden','hidden','hidden'], jogada: true });
-      // console.log('acertou');
-      //let audio = document.getElementById('audio');
-      //audio.play();
     }
 
     window.setTimeout(() => {
