@@ -99,6 +99,13 @@
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+.GameCenario3{
+    background: url(/src//Assets/Cenarios/3.png) !important;  
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
 .GameArea .GameControls{
     display: flex;
     justify-content: flex-start;
