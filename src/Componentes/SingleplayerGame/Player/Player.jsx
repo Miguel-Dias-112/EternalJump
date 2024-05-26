@@ -152,11 +152,14 @@ class Player extends React.Component {
     let imagensMorte = this.loadImages(mortePng);
     let imagensBatedor = this.loadImages(batedor);
     let imagensbatedorAnjo = this.loadImages(batedorAnjo);
-    this.runAnims(seguradorCanvactx,imagensBatedor,100,res) 
-    this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,100,res)
-    this.runAnims(canvas2C,imagensCorda,30,res)
-    this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
-    this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,30,res)
+    window.setTimeout(()=>{
+      this.runAnims(seguradorCanvactx,imagensBatedor,100,res) 
+      this.runAnims(c,imagensPulo,100,res)
+      this.runAnims(canvas2C,imagensCorda,30,res)
+      this.runAnims(seguradorCanvactx,imagensBatedor,100,res)
+      this.runAnims(seguradorAnjoCanvactx,imagensbatedorAnjo,30,res)
+    },500)
+    
     setInterval(()=>{
       if(this.dieonce){
         return;

@@ -7,10 +7,12 @@
     width: 100vw;
     height: 100vh;
     background-color:rgba(0, 0, 0, 0.8);
-   
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     gap: 20%
     }
+.final h1{
+    font-size: 3em !important;
+    color: white;
+}
 .botoes {
     display: flex;
  
@@ -38,7 +40,8 @@
     width: 80px;
     height: 80px;
     border-radius: 20px;
-    background-color: #85e1fd;
+
+    background-color: rgba(189, 189, 189, 1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,19 +51,20 @@
 }
 
 .final p{
-    background-color: #85e1fd;
+    background-color: rgba(189, 189, 189, 1);
     min-width: 80px;
     padding: 10px;
     text-align: center;
+    font-size: 1em;
     color: black;
     border-radius: 5px;
-    border: 5px solid #118aaf;
+    border: 5px solid rgb(112, 112, 112);
 }
 
 .final p:active{
     position: relative;
     color: white;
-    background-color: #118aaf;
+    background-color: rgba(112, 112, 112, 1);
 
 }
 

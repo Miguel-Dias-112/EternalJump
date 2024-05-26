@@ -33,13 +33,13 @@ export function FaseSelection( props) {
                 case 0:
 
                     bloqueio.style.display = "flex";
-                    titulo.innerText = "Você ainda não passou pelo Inferno";
+                    titulo.innerText = "Você ainda não passou pelo Céu";
                     
                     break;
 
                 case 1:
                     bloqueio.style.display = "flex";
-                    titulo.innerText = "Você ainda não passou pelo Purgatório";
+                    titulo.innerText = "Você ainda não passou pelo Inferno";
                     
                     break;
 
@@ -68,6 +68,9 @@ export function FaseSelection( props) {
                 <image className='onetothree'></image>
                 <image  className='twotothree'></image>
                    { fasesConcluidas.map((fase, index) => {
+                        if(index==0){
+                            return <div className = {'seletorDeFase fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+                        }
                         if(fase === 1){
                             return <div className = {'seletorDeFase fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
                         }else{

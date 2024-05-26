@@ -30,6 +30,7 @@
     height: 100%;
     z-index: 10;
     backdrop-filter: blur(15px);
+    z-index: 11;
 
     display: flex;
     align-items: center;
@@ -39,8 +40,8 @@
     width: 50%;
     height: 20%;
     font-size: 30pt;
-    color: black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,12 +87,28 @@
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
 }
+
+  
 .GameCenario1{
     background: url(/src//Assets/Cenarios/1.png) !important;  
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    
+
 }
+.GameCenario1::before {
+    content: "";
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-color: black;
+    z-index: 1;
+  }
 .GameCenario2{
     background: url(/src//Assets/Cenarios/2.png) !important;  
 
@@ -128,7 +145,12 @@
 .GameControlsButtons{
     border-radius: 5px;
     border: 5px solid black;
-    background-color: #85e1fd;
+
+    background-color: #6a6e70;
+    opacity: 0.8;
+    background-image:  repeating-linear-gradient(45deg, #5f6364 25%, transparent 25%, transparent 75%, #5f6364 75%, #5f6364), repeating-linear-gradient(45deg, #5f6364 25%, #6a6e70 25%, #6a6e70 75%, #5f6364 75%, #5f6364);
+    background-position: 0 0, 10px 10px;
+    background-size: 5px 5px;
     box-shadow: 5px 5px 15px gray;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -151,7 +173,7 @@
     justify-content: center;
     align-items: center;
     max-width: 80px;
-
+    margin: -5px;
     border: 5px solid black;
 }
 
@@ -160,9 +182,13 @@
 
     width: 100%;
     height: 100%;
-    background-color: #85e1fd;
+    background-color: #6a6e70;
     opacity: 0.8;
- 
+    background-image:  repeating-linear-gradient(45deg, #5f6364 25%, transparent 25%, transparent 75%, #5f6364 75%, #5f6364), repeating-linear-gradient(45deg, #5f6364 25%, #6a6e70 25%, #6a6e70 75%, #5f6364 75%, #5f6364);
+    background-position: 0 0, 10px 10px;
+    background-size: 5px 5px;
+    border-bottom: 8px solid black;
+
     box-shadow: -2.5px 2.5px 5px gainsboro ;
     align-items: center;
     align-content:center;
@@ -196,8 +222,12 @@
     height:auto;
     margin: 0%;
     margin-right: 10%;
+    border: 2px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
 
-    padding: 0%;    
+    border-radius: 5px;
+    background-color: rgba(189, 189, 189, 0.6);
     flex-direction: row;
 }
 .heart{
@@ -220,8 +250,14 @@
 .SinglePlayerGame header section h1{
     margin: 0%;
     padding: 0%;
-    padding-right: 10%;
+    margin-right: 10%;
+   
+
+    border-bottom: 2px solid black;
     font-size: large;
+    -webkit-text-stroke-width: 0.5px;
+    color: black; 
+    -webkit-text-stroke-color:black  ;
     text-align: center;
 
 }
@@ -241,6 +277,7 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
-    background-color: rgb(2, 182, 182);
+    background-color: rgba(189, 189, 189, 1);
+
 
 }

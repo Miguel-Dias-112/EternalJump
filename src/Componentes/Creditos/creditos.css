@@ -4,8 +4,9 @@
     height: auto;
     min-height: 100vh;
     width: 100vw;
-    background-color: #00c3ff8e;
-
+    background-image:  repeating-linear-gradient(45deg, #5f6364 25%, transparent 25%, transparent 75%, #5f6364 75%, #5f6364), repeating-linear-gradient(45deg, #5f6364 25%, #6a6e70 25%, #6a6e70 75%, #5f6364 75%, #5f6364);
+    background-position: 0 0, 10px 10px;
+    background-size: 5px 5px;
     overflow: scroll;
 }
 
@@ -31,7 +32,7 @@
     margin: 0;
     margin-bottom: 10px;
     max-width: 500px;
-    background-color: #00c3ff8e;
+    background-color: rgba(189, 189, 189, 1);
 }
 .creditos ol{
     padding: 0%;
@@ -55,7 +56,7 @@
     max-width: 180px;
     height: 60px;
     border: 5px solid black;
-    background-color: #00c3ff8e;
+    background-color: rgba(189, 189, 189, 1);
     box-shadow: 5px 5px 5px gray;
     border-radius: 5px;
     margin-top: 50px;

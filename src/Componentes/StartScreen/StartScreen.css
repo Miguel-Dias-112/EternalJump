@@ -7,7 +7,7 @@
     gap: 5px;
     align-items: center;}
 .StartScreen h1{
-    font-size: 2em;
+    font-size: 3em;
     color: black;
     margin-bottom: 40px;
     animation: bounce 1.5s infinite;
@@ -18,7 +18,7 @@
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
 }
 .StartScreen button{
@@ -26,7 +26,10 @@
     max-width: 180px;
     height: 60px;
     border: 5px solid black;
-    background-color: #00c3ff8e;
+    background-color: rgba(189, 189, 189, 1);
     box-shadow: 5px 5px 5px gray;
     border-radius: 5px;
+}
+.StartScreen button:active{
+    background-color:#d1e0f0;
 }

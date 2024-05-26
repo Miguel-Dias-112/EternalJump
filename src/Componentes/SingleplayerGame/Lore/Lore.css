@@ -2,7 +2,11 @@
     position: absolute;
     width: 100%;
     height: 100vh;
-    background-color:#b0ebfd;
+    background-color: #6a6e70;
+opacity: 1;
+background-image:  repeating-linear-gradient(45deg, #5f6364 25%, transparent 25%, transparent 75%, #5f6364 75%, #5f6364), repeating-linear-gradient(45deg, #5f6364 25%, #6a6e70 25%, #6a6e70 75%, #5f6364 75%, #5f6364);
+background-position: 0 0, 10px 10px;
+background-size: 5px 5px;
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -62,19 +66,19 @@
 
 }
 .slide section .text{
-    width: 50%;
-    background-color: #85e1fd;
+    width: 70%;
+    background-color: #cfd8dd;
     border: 5px solid black;
     border-radius: 5px;
     box-shadow: 5px 5px 3px gainsboro;
-
+    
     padding: 10px;
 }
 
 .slide section button{
     width: auto;
     height: auto;
-    background-color: #b0ebfd;
+    background-color: #d1e0f0;
     border: 5px solid black;
     padding: 10px;
     border-radius: 15px;
