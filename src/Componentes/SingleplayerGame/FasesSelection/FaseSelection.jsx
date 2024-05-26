@@ -26,7 +26,26 @@ export function FaseSelection( props) {
         if( faseAnteriorConcluida === 1 ){
             window.location.href = '/SinglePlayer/fase'+faseAtual;
         }else{
-            window.alert("você não fez a fase "+ faseAnterior)
+            let bloqueio = document.getElementById('Bloqueio')
+            let titulo = document.getElementById('Titulo')
+            switch(faseAnterior)
+            {
+                case 0:
+
+                    bloqueio.style.display = "flex";
+                    titulo.innerText = "Você ainda não passou pelo Inferno";
+                    
+                    break;
+
+                case 1:
+                    bloqueio.style.display = "flex";
+                    titulo.innerText = "Você ainda não passou pelo Purgatório";
+                    
+                    break;
+
+                default:
+                break;
+            }
         }
        
         
@@ -41,6 +60,10 @@ export function FaseSelection( props) {
                 </button>
                 
             </header>
+            <div id='Bloqueio'>
+                <h1 id='Titulo'>TÍTULO</h1>
+                <button onClick={() => {let bloqueio = document.getElementById('Bloqueio'); bloqueio.style.display = 'none'}}>OK</button>
+            </div>
             <div  className='mapa' >
                 <image className='onetothree'></image>
                 <image  className='twotothree'></image>
