@@ -6,6 +6,7 @@ import erro from '../../Sons/erro.mp3';
 import musicaf1 from '../../Sons/Inferno.mp3';
 import musicaf2 from '../../Sons/PurgatorioF.mp3';
 import musicaf3 from '../../Sons/spiders.mp3';
+import setaBack from '../../Assets/setaBack.png';
 
 import getFase from '../../Data/Fases';
 import { useCookies } from 'react-cookie';
@@ -266,7 +267,7 @@ class SinglePlayerGame extends Component {
         <Final tipo={this.state.tipofim} back={this.back} fase={this.props.fase}/>
 
         <header>
-          <button onClick={this.back}>←</button>
+          <button onClick={this.back}><img className='seta' src={setaBack} alt="←" /></button>
 
           <section> 
             <section id='lifebar' className='lifebar'></section>

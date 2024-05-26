@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './FaseSelection.css'
+import './FaseSelection.css';
+import setaBack from '../../../Assets/setaBack.png';
 
 
 import { useCookies } from 'react-cookie';
@@ -56,7 +57,7 @@ export function FaseSelection( props) {
             <header>
             <h1>fases</h1>
                 <button onClick={()=>{window.location.href = '../'}}>
-                ←
+                <img className='seta' src={setaBack} alt="←" />
                 </button>
                 
             </header>
