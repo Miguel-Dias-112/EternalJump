@@ -12,6 +12,8 @@ import {
   Routes,
   Route,
   useRoutes,
+  Link,
+  HashRouter,
   BrowserRouter,
 } from "react-router-dom";
 
@@ -31,7 +33,15 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+     
+      <HashRouter >
+      <Link id='singleplayer' to='/singleplayer'></Link>
+      <Link id='fase1' to='/'></Link>
+      <Link id='fase2' to='/ProjectsPage'></Link>
+      <Link id='fase3' to='/Main2'></Link>
+      <Link id='creditos' to='/creditos'></Link>
+      <Link id='finalizacao' to='/finalizacao'></Link>
+      
         <Routes>
           <Route path="/" index element={<StartScreen />} />
           <Route path="/creditos/" element={<Creditos />} />
@@ -42,7 +52,7 @@ function App() {
           <Route path="/singleplayer/fase3" element={<SinglePlayerGame  fase={3}/>} />
 
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }

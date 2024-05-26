@@ -23,7 +23,7 @@ export function FaseSelection( props) {
             window.location.href = '/SinglePlayer/fase'+faseAtual;
             return
         }
-        console
+        
         if( faseAnteriorConcluida === 1 ){
             window.location.href = '/SinglePlayer/fase'+faseAtual;
         }else{
