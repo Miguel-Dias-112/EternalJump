@@ -41,9 +41,14 @@ export function Lore2( props) {
                onSwiper={(swiper) => console.log(swiper)}>
 
 
-             
+                <SwiperSlide className='slide'>
+                   <section>
+                       <p className='text'>Raquel demonstrou ao emissário de Deus que suas habilidades eram incríveis, e ele imediatamente relatou a Deus.</p>
+                   </section>
+               </SwiperSlide> 
                <SwiperSlide className='slide'>
                    <section>
+                        <p className='text'>O emissário do Diabo, incrédulo, a teleporta para o inferno, desafiando-a a pular diante do calor infernal.</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>

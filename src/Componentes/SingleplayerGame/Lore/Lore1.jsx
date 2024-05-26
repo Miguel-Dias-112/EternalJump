@@ -43,21 +43,13 @@ export function Lore1( props) {
 
                <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Era uma vez uma menina chamada raquel janaina, conhecida por sua coragem e decisões imaturas. </p>
-                      
-                       <img src={lore1} className='small' ></img>
-
+                       <p className='text'>Ela era tão habilidosa em pular corda que sua destreza parecia celestial. Sua maestria chamou a atenção tanto de Deus quanto do Diabo, que, intimidados por seu talento, enviaram emissários para teleportá-la a locais mágicos, onde suas habilidades seriam testadas.</p>
+                       
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                       <p  className='text'>Um dirincando e apareceram duas criaturas que a desafiaram</p>
-                       <img src={lore2}></img>
-                   </section>
-               </SwiperSlide>
-               <SwiperSlide className='slide'>
-                   <section>
-                       <p  className='text'>Raquel, determinada e sem nada pra fazer, aceitou a hora! </p>
+                   <p className='text'>Primeiro, Deus a enviou para pular sobre as nuvens.</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>
