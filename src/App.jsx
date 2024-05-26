@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Jogador from './Jogador.jsx'
+import HistoriaFinal from './Componentes/HistoriaFinal/historiafinal.jsx'
 import SinglePlayerGame from './Componentes/SingleplayerGame/SinglePlayer.jsx'
 import StartScreen from './Componentes/StartScreen/StartScreen.jsx'
 import { Creditos } from './Componentes/Creditos/creditos.jsx'
@@ -34,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" index element={<StartScreen />} />
           <Route path="/creditos/" element={<Creditos />} />
+          <Route path="/finalizacao/" element={<HistoriaFinal />} />
           <Route path="/singleplayer/" element={<SinglePlayerGame  fase={0}/>} />
           <Route path="/singleplayer/fase1" element={<SinglePlayerGame  fase={1}/>} />
           <Route path="/singleplayer/fase2" element={<SinglePlayerGame  fase={2}/>} />

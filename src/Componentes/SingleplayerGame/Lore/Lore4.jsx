@@ -8,7 +8,7 @@ import { useCookies } from 'react-cookie';
 import { Pagination } from 'swiper/modules';
 
 
-export function Lore3( props) {
+export default function Lore4( props) {
     
     let _display;
   
@@ -40,15 +40,11 @@ export function Lore3( props) {
                onSlideChange={() => console.log('slide change')}
                onSwiper={(swiper) => console.log(swiper)}>
 
-                <SwiperSlide className='slide'>
-                   <section>
-                       <p className='text'>Os emissários, ao relatarem aos respectivos seres divinos sobre as habilidades de Raquel, causam preocupação tanto em Deus quanto no Diabo. Preocupados, ambos ordenam que ela seja aprisionada no limbo eterno.</p>
-                   </section>
-               </SwiperSlide>
+                
                <SwiperSlide className='slide'>
                    <section>
-                        <p>Assim, Raquel pula eternamente, assim como Sísifo carrega sua pedra.</p>
-                       <button onClick={mostraFase}>Start</button>
+                        <p>Obrigado por jogar nosso jogo!</p>
+                       <button onClick={mostraFase}>Voltar</button>
                    </section>
                </SwiperSlide>
            </Swiper>
