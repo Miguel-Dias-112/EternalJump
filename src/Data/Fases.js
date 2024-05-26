@@ -138,8 +138,14 @@ const fases ={
         .concat(inter(2, [2,1,1,29],false, m140BPM))
         .concat(inter(2, [1,2,1,30],false, m140BPM))
         .concat(inter(2, [1,1,2,31],false, m140BPM))
-        .concat(inter(2, [1,1,2,32],false, m140BPM))
-        .concat(inter(2, [1,1,2,33],false, m140BPM))
+        .concat(inter(2, [1,2,1,32],false, m140BPM))
+        .concat(inter(2, [1,2,1,33],false, m140BPM))
+        .concat(inter(2, [2,1,1,34],false, m140BPM))
+        .concat(inter(2, [1,1,2,35],false, m140BPM))
+        .concat(inter(2, [1,2,1,36],false, m140BPM))
+        .concat(inter(2, [1,1,2,37],false, m140BPM))
+        .concat(inter(2, [2,1,1,38],false, m140BPM))
+        .concat(inter(2, ["preview","preview","preview",39],false, m140BPM))
 
     },
     2: {
@@ -296,11 +302,9 @@ const fases ={
         .concat(inter(1, [1,2,1,84],false, m120BPM))
         .concat(inter(1, [1,2,1,85],false, m120BPM))
         .concat(inter(1, [1,1,2,86],false, m120BPM))
-        .concat(inter(1, [2,1,1,87],false, m120BPM))
-        .concat(inter(1, [1,2,1,88],false, m120BPM))
-        .concat(inter(1, [1,1,2,89],false, m120BPM))
-        .concat(inter(1, [1,2,1,90],false, m120BPM))
-        
+        .concat(inter(1, [1,2,1,87],false, m120BPM))
+        .concat(inter(1, ["preview","preview","preview",88],false, m120BPM))
+               
 
     }
 }

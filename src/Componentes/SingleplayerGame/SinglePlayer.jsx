@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SinglePlayer.css';
 import Player from './Player/Player';
 import michael from '../../Sons/michael.mp3';
+import erro from '../../Sons/erro.mp3';
 import musicaf1 from '../../Sons/Inferno.mp3';
 import musicaf2 from '../../Sons/PurgatorioF.mp3';
 import musicaf3 from '../../Sons/spiders.mp3';
@@ -133,7 +134,6 @@ class SinglePlayerGame extends Component {
             audio.volume = 0.2
 
             audio.play()
-            console.log('Entrou no audo')
             this.setState({vidas: this.state.vidas - 1});
           }else{
             this.setState({jogada: false});
@@ -295,7 +295,7 @@ class SinglePlayerGame extends Component {
             
           </section>
         </section>
-        <audio  id = 'audio' src={michael} />
+        <audio  id = 'audio' src={erro} />
         <audio  id = 'audio2' src={this.selecionarMusica(this.props.fase)} />
 
       </main>
