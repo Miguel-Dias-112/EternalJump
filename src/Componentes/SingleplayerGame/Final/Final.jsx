@@ -34,6 +34,10 @@ export function Final(props) {
         window.location.href = '/SinglePlayer/fase'+(fase+1);
         
     }
+    const final = () => {
+        window.location.href = '/finalizacao/';
+        
+    }
     
     if(tipoTela === 2)
         { 
@@ -60,31 +64,7 @@ export function Final(props) {
                 </>
             )
         };
-    if(tipoTela === 1)
-    {
-        return(
-            <>
-            <div className='background' >
-
-            <div className="final">
-                <h1>Você ganhou!</h1>
-                <div className='botoes'>
-                    <div>
-                        {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
-                        <p onClick={voltarGanhou}>Voltar</p>
-                    </div>
-                    <div>
-                        {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
-                        <p onClick={proximo}>Próximo</p>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-        
-            </>
-        )
-    };
+    
     if(tipoTela === 1 && fase === 3)
         {
             return(
@@ -98,6 +78,10 @@ export function Final(props) {
                             {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
                             <p onClick={voltarGanhou}>Voltar</p>
                         </div>
+                        <div>
+                        {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
+                        <p onClick={final}>Fim!</p>
+                    </div>
                     </div>
                 </div>
     
@@ -106,6 +90,31 @@ export function Final(props) {
                 </>
             )
         };
+        if(tipoTela === 1)
+            {
+                return(
+                    <>
+                    <div className='background' >
+        
+                    <div className="final">
+                        <h1>Você ganhou!</h1>
+                        <div className='botoes'>
+                            <div>
+                                {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
+                                <p onClick={voltarGanhou}>Voltar</p>
+                            </div>
+                            <div>
+                                {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
+                                <p onClick={proximo}>Próximo</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    </div>
+                
+                    </>
+                )
+            };
     
     let _display = 'none';
     return (<div style={{display:_display}} />);
