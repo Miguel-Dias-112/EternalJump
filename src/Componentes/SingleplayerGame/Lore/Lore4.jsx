@@ -43,7 +43,7 @@ export default function Lore4( props) {
                 
                <SwiperSlide className='slide'>
                    <section>
-                        <p>Obrigado por jogar nosso jogo!</p>
+                        <p className='text'>Obrigado por jogar nosso jogo!</p>
                        <button onClick={mostraFase}>Voltar</button>
                    </section>
                </SwiperSlide>

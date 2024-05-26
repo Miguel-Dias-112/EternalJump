@@ -47,7 +47,7 @@ export function Lore3( props) {
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                        <p>Assim, Raquel pula eternamente, assim como Sísifo carrega sua pedra.</p>
+                        <p className='text'>Assim, Raquel pula eternamente, assim como Sísifo carregou sua pedra eternamente.</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>
