@@ -19,7 +19,7 @@ export function Final(props) {
         }
         let finalCtn = document.getElementById('backFim');
 
-        finalCtn.style.display = "none";
+        finalCtn.remove();
         window.location.reload();
     };
     const voltarGanhou = function(){
@@ -27,7 +27,8 @@ export function Final(props) {
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
         let finalCtn = document.getElementById('backFim');
-        finalCtn.style.display = "none";
+
+        finalCtn.remove();
         props.back();
     }
     const proximo = () => {
@@ -39,17 +40,19 @@ export function Final(props) {
         let x = document.getElementById('fase'+(fase+1))
         let finalCtn = document.getElementById('backFim');
 
-        finalCtn.style.display = "none";
+        finalCtn.remove();
 
         x.click()
+        window.location.reload();
 
     }
     const final = () => {
         let x = document.getElementById('finalizacao')
         let finalCtn = document.getElementById('backFim');
 
-        finalCtn.style.display = "none";
-        x.click()        
+        finalCtn.remove();
+        x.click();
+        window.location.reload();
     }
     
     if(tipoTela === 2)
