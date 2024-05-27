@@ -42,14 +42,14 @@ export function Lore3( props) {
 
                 <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>The emissaries, in reporting to their respective divine beings about Raquel’s
+                       <p className='text'>The emissaries, in reporting to their respective divine beings about Rachels’s
 abilities, cause concern in both God and the Devil. Worried, they both order her to be
 imprisoned in eternal limbo.</p>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                        <p className='text'> Thus, Raquel jumps eternally, as Sisyphus carries his stone.</p>
+                        <p className='text'> Thus, Rachel jumps eternally, as Sisyphus carries his stone.</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>

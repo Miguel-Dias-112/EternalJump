@@ -44,7 +44,7 @@ export function Lore2( props) {
                 <SwiperSlide className='slide'>
                    <section>
                        <p className='text'>
-                       Raquel showed God’s emissary that her skills were incredible and immediately reported to God                        </p>
+                       Rachel showed God’s emissary that her skills were incredible and immediately reported to God                        </p>
                    </section>
                </SwiperSlide> 
                <SwiperSlide className='slide'>

@@ -14,7 +14,7 @@ export function Creditos() {
         <h1>Credits</h1>
     
         
-        <p>Eternal Jump was a game developed for React Jam 2023, based on the story of Raquel Janaina, a child who uses jump rope to achieve her goals. The game development period was from 05/18/2024 to 05/26/2024, and it had the participation of Federal University of Juiz de Fora students and the support of the INOVAGames project.</p>
+        <p>Eternal Jump was a game developed for React Jam 2023, based on the story of Rachel Janaina, a child who uses jump rope to achieve her goals. The game development period was from 05/18/2024 to 05/26/2024, and it had the participation of Federal University of Juiz de Fora students and the support of the INOVAGames project.</p>
        
 
         <h2>Art Director</h2>
