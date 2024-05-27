@@ -62,15 +62,15 @@ export function Final(props) {
                 <div className='background' id='backFim'>
 
                 <div className="final">
-                    <h1>Você perdeu!</h1>
+                    <h1>You Lose!</h1>
                     <div className='botoes'>
                         <div>
                             {/* <img className='icone' onClick={props.back} src={botoesplaceholder}/> */}
-                            <p onClick={props.back}>Voltar</p>
+                            <p onClick={props.back}>Back</p>
                         </div>
                         <div>
                             {/* <img className='icone' onClick={recarregarPagina} src={botoesplaceholder}/> */}
-                            <p onClick={recarregarPagina}>Repetir</p>
+                            <p onClick={recarregarPagina}>Try again</p>
                         </div>
                     </div>
                 </div>
@@ -92,11 +92,11 @@ export function Final(props) {
                     <div className='botoes'>
                         <div>
                             {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
-                            <p onClick={voltarGanhou}>Voltar</p>
+                            <p onClick={voltarGanhou}>Back</p>
                         </div>
                         <div>
                         {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
-                        <p onClick={final}>Fim!</p>
+                        <p onClick={final}>End!</p>
                     </div>
                     </div>
                 </div>
@@ -117,11 +117,11 @@ export function Final(props) {
                         <div className='botoes'>
                             <div>
                                 {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
-                                <p onClick={voltarGanhou}>Voltar</p>
+                                <p onClick={voltarGanhou}>Back</p>
                             </div>
                             <div>
                                 {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
-                                <p onClick={proximo}>Próximo</p>
+                                <p onClick={proximo}>Next</p>
                             </div>
                         </div>
                     </div>

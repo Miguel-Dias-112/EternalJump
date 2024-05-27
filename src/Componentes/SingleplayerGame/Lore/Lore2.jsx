@@ -43,12 +43,13 @@ export function Lore2( props) {
 
                 <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Raquel demonstrou ao emissário de Deus que suas habilidades eram incríveis, e ele imediatamente relatou a Deus.</p>
+                       <p className='text'>
+                       Raquel showed God’s emissary that her skills were incredible and immediately reported to God                        </p>
                    </section>
                </SwiperSlide> 
                <SwiperSlide className='slide'>
                    <section>
-                        <p className='text'>O emissário do Diabo, incrédulo, a teleporta para o inferno, desafiando-a a pular diante do calor infernal.</p>
+                        <p className='text'>The Devil’s emissary, skeptical, teleports her to hell, challenging her to jump in the face of the infernal heat</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>

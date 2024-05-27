@@ -49,7 +49,7 @@ export function Tutorial( props ) {
 
                <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Clique nos botões assim que eles ficarem verdes.</p>
+                       <p className='text'>Click on the buttons as soon as they turn green This is a visual indicator of the next key</p>
                       
                        <img src={t1}></img>
 
@@ -57,20 +57,20 @@ export function Tutorial( props ) {
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                       <p  className='text'>Os botões seguem o ritmo da música.</p>
+                       <p  className='text'>The buttons follow the music rhythm</p>
                        <img src={t2}></img>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                       <p  className='text'>Cuidado para não perder o botão verde ou clicar nos botões vermelhos ou perderá uma vida!</p>
+                       <p  className='text'> Be careful not to miss the green button or click on the red buttons or you will lose a life!!</p>
                        <img src={t3}></img>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                       <p  className='text'>Não se perca e ganhe o máximo de pontos. Bom jogo!</p>
-                       <button onClick={mostraFase}>Fechar tutorial</button>
+                       <p  className='text'>Don’t lose the hearts and earn as many points as possible. Good game!</p>
+                       <button onClick={mostraFase}>Close Tutorial</button>
                    </section>
                </SwiperSlide>
            </Swiper>

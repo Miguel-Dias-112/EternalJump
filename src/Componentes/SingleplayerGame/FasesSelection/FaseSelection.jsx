@@ -44,13 +44,13 @@ export function FaseSelection( props) {
                 case 0:
 
                     bloqueio.style.display = "flex";
-                    titulo.innerText = "Você ainda não passou pelo Céu";
+                    titulo.innerText = "You have not completed the heaven stage";
                     
                     break;
 
                 case 1:
                     bloqueio.style.display = "flex";
-                    titulo.innerText = "Você ainda não passou pelo Inferno";
+                    titulo.innerText = "You have not completed the hell stage";
                     
                     break;
 
@@ -65,7 +65,7 @@ export function FaseSelection( props) {
     return (
         <div style={{display:_display}} className = 'paginaSelecao'>
             <header>
-            <h1>fases</h1>
+            <h1>Stages</h1>
                 <button onClick={backMenu}>
                 <img className='seta' src={setaBack} alt="←" />
                 </button>

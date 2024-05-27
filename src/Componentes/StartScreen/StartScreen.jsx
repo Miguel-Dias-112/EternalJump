@@ -17,8 +17,8 @@ export default function StartScreen(props) {
     <>
       <main className='StartScreen'>
         <h1>Eternal Jump</h1>
-        <button onClick={startGame}> Single Player</button>
-        <button onClick={creditos}> Creditos</button>
+        <button onClick={startGame}> Play</button>
+        <button onClick={creditos}> Credits</button>
       </main>
     </>
   )
