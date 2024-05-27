@@ -17,12 +17,12 @@ export function Creditos() {
         
        
 
-        <h2>Diretor de Arte</h2>
+        <h2>Art Director</h2>
         <ol>
         <li>Guilherme Martins</li>
         </ol>
 
-        <h2>Animações & Sprites</h2>
+        <h2>Animations & Sprites</h2>
 
         <ol>
         <li>Guilherme Martins</li>
@@ -31,17 +31,17 @@ export function Creditos() {
 
         </ol>
         
-        <h2>Produção Musical</h2>
+        <h2>Music Production</h2>
         <ol>
         <li>Guilherme Martins</li>
         <li>Cauã Moreno</li>
         <li>Miguel Dias</li>
         </ol>
-        <h2>Lider de técnico</h2>
+        <h2>Tech Lead</h2>
         <ol>
         <li>Miguel Dias</li>
         
-        <h2>Programadores</h2>
+        <h2>Programmers</h2>
         <ol>
         <li>Miguel Dias</li>
         <li>Cauã Moreno</li>
@@ -49,14 +49,19 @@ export function Creditos() {
         <li>Gabriel Basílio</li>
         </ol>
 
-        <h2>Revisão</h2>
+        <h2>Review</h2>
         <ol>
         <li>Emerson Caneschi</li>
         </ol>
-        
+        <h2>Translation</h2>
+        <ol>
+        <li>Emerson Caneschi</li>
+        <li>Miguel Dias</li>
+
+        </ol>
         
         </ol>
-        <h2>Apoio</h2>
+        <h2>Support</h2>
         <img src={inovalogo}></img>
 
         
