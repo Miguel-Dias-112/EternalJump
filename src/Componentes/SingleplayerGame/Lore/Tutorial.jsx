@@ -26,7 +26,6 @@ export function Tutorial( props ) {
             loreCtn.style.display = 'none';
             loreFundo.style.display = 'none';
         },501)
-        setTimeout(() => {props.click()}, 505)
         setCookie('dadosCookie', newBiscuit);
 
     }
