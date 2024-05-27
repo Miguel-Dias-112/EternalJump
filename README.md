@@ -3,7 +3,7 @@
 Eternal Jump foi um jogo desenvolvido para a React Jam 2023, se baseando na história de Raquel Janaina, uma criança que usa de pular corda para atingir seus objetivos. O período de desenvolvimento do jogo foi de 18/05/24 até 26/05/24, e contou com a participação de estudantes da UFJF e apoio do projeto Inova Games.
 
 ## Como Jogar
-O jogo está disponível [aqui](https://react-jam-game.vercel.app). 
+O jogo está disponível [aqui](https://eternal-jump.vercel.app). 
 
 Para passar de fases, basta que você acerte os blocos verdes no tempo correto, sem perder suas vidas.
 

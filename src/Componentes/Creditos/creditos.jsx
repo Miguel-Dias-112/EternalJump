@@ -11,10 +11,10 @@ export function Creditos() {
 
         <div className='creditos'>
         
-        <h1>Créditos</h1>
+        <h1>Credits</h1>
+    
         
-        <p>Eternal Jump foi um jogo desenvolvido para a React Jam 2023 pelo Capybara Ninja Team, sobre a história de Raquel Janaina, uma criança que usa de pular corda para atingir seus objetivos. O período de desenvolvimento do jogo foi de 18/05/24 até 26/05/24, e contou com a participação de estudantes da UFJF e apoio do projeto Inova Games.</p>
-        
+        <p>Eternal Jump was a game developed for React Jam 2023, based on the story of Raquel Janaina, a child who uses jump rope to achieve her goals. The game development period was from 05/18/2024 to 05/26/2024, and it had the participation of Federal University of Juiz de Fora students and the support of the INOVAGames project.</p>
        
 
         <h2>Art Director</h2>
