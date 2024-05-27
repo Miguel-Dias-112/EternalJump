@@ -4,19 +4,21 @@ import './StartScreen.css'
 export default function StartScreen(props) {
 
   let startGame = function(){
-    window.location.href = '/SinglePlayer/'
+    let x = document.getElementById('singleplayer')
+    x.click()
   }
 
   let creditos = function(){
-    window.location.href = '/creditos/'
+    let x = document.getElementById('creditos')
+    x.click()
   }
 
   return (
     <>
       <main className='StartScreen'>
         <h1>Eternal Jump</h1>
-        <button onClick={startGame}> Single Player</button>
-        <button onClick={creditos}> Creditos</button>
+        <button onClick={startGame}> Play</button>
+        <button onClick={creditos}> Credits</button>
       </main>
     </>
   )

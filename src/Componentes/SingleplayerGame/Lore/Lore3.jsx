@@ -42,12 +42,14 @@ export function Lore3( props) {
 
                 <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Os emissários, ao relatarem aos respectivos seres divinos sobre as habilidades de Raquel, causam preocupação tanto em Deus quanto no Diabo. Preocupados, ambos ordenam que ela seja aprisionada no limbo eterno.</p>
+                       <p className='text'>The emissaries, in reporting to their respective divine beings about Raquel’s
+abilities, cause concern in both God and the Devil. Worried, they both order her to be
+imprisoned in eternal limbo.</p>
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                        <p>Assim, Raquel pula eternamente, assim como Sísifo carrega sua pedra.</p>
+                        <p className='text'> Thus, Raquel jumps eternally, as Sisyphus carries his stone.</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>

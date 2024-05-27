@@ -5,6 +5,7 @@ import { useCookies } from 'react-cookie';
 export function Final(props) {
     const tipoTela = props.tipo;
     const fase = props.fase;
+
     const [cookies, setCookie] = useCookies(['dadosCookie']);
     let dados = cookies.dadosCookie;
 
@@ -16,14 +17,19 @@ export function Final(props) {
             biscuit.fasesConsluidas[fase-1] = 1;
             setCookie("dadosCookie", biscuit)
         }
-        window.location.reload();   
+        let finalCtn = document.getElementById('backFim');
+
+        finalCtn.remove();
+        window.location.reload();
     };
     const voltarGanhou = function(){
         let biscuit = cookies.dadosCookie;
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
+        let finalCtn = document.getElementById('backFim');
+
+        finalCtn.remove();
         props.back();
-        
     }
     const proximo = () => {
         let biscuit = cookies.dadosCookie;
@@ -31,30 +37,40 @@ export function Final(props) {
         biscuit.fasesConcluidas[fase-1] = 1;
         setCookie("dadosCookie", biscuit)
         const fasesConcluidas= dados.fasesConcluidas
-        window.location.href = '/SinglePlayer/fase'+(fase+1);
-        
+        let x = document.getElementById('fase'+(fase+1))
+        let finalCtn = document.getElementById('backFim');
+
+        finalCtn.remove();
+
+        x.click()
+        window.location.reload();
+
     }
     const final = () => {
-        window.location.href = '/finalizacao/';
-        
+        let x = document.getElementById('finalizacao')
+        let finalCtn = document.getElementById('backFim');
+
+        finalCtn.remove();
+        x.click();
+        window.location.reload();
     }
     
     if(tipoTela === 2)
         { 
             return(
                 <>
-                <div className='background' >
+                <div className='background' id='backFim'>
 
                 <div className="final">
-                    <h1>Você perdeu!</h1>
+                    <h1>You Lose!</h1>
                     <div className='botoes'>
                         <div>
                             {/* <img className='icone' onClick={props.back} src={botoesplaceholder}/> */}
-                            <p onClick={props.back}>Voltar</p>
+                            <p onClick={props.back}>Back</p>
                         </div>
                         <div>
                             {/* <img className='icone' onClick={recarregarPagina} src={botoesplaceholder}/> */}
-                            <p onClick={recarregarPagina}>Repetir</p>
+                            <p onClick={recarregarPagina}>Try again</p>
                         </div>
                     </div>
                 </div>
@@ -69,18 +85,18 @@ export function Final(props) {
         {
             return(
                 <>
-                <div className='background' >
+                <div className='background' id='backFim'>
     
                 <div className="final">
                     <h1>Você ganhou!</h1>
                     <div className='botoes'>
                         <div>
                             {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
-                            <p onClick={voltarGanhou}>Voltar</p>
+                            <p onClick={voltarGanhou}>Back</p>
                         </div>
                         <div>
                         {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
-                        <p onClick={final}>Fim!</p>
+                        <p onClick={final}>End!</p>
                     </div>
                     </div>
                 </div>
@@ -94,18 +110,18 @@ export function Final(props) {
             {
                 return(
                     <>
-                    <div className='background' >
+                    <div className='background' id='backFim'>
         
                     <div className="final">
                         <h1>Você ganhou!</h1>
                         <div className='botoes'>
                             <div>
                                 {/* <img className='icone' onClick={props.back} src={botoesplaceholder} alt="salve caua"/> */}
-                                <p onClick={voltarGanhou}>Voltar</p>
+                                <p onClick={voltarGanhou}>Back</p>
                             </div>
                             <div>
                                 {/* <img className='icone' src={botoesplaceholder} onClick={proximo} alt="salve caua" /> */}
-                                <p onClick={proximo}>Próximo</p>
+                                <p onClick={proximo}>Next</p>
                             </div>
                         </div>
                     </div>

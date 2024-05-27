@@ -7,6 +7,11 @@ import { useCookies } from 'react-cookie';
 
 
 export function FaseSelection( props) {
+    const backMenu= function() {
+        let x = document.getElementById('start');
+        x.click();
+        window.location.reload();
+      }
     const [cookies, setCookie] = useCookies(['dadosCookie']);
     let dados = cookies.dadosCookie;
     let _display
@@ -20,12 +25,17 @@ export function FaseSelection( props) {
         const faseAnterior = faseAtual -2
         const faseAnteriorConcluida = fasesConcluidas[faseAnterior]
         if(faseAtual===1){
-            window.location.href = '/SinglePlayer/fase'+faseAtual;
+            let x = document.getElementById('fase'+faseAtual)
+            x.click()
+            window.location.reload();
             return
         }
-        console
+        
         if( faseAnteriorConcluida === 1 ){
-            window.location.href = '/SinglePlayer/fase'+faseAtual;
+            let x = document.getElementById('fase'+faseAtual)
+            x.click()
+            window.location.reload();
+
         }else{
             let bloqueio = document.getElementById('Bloqueio')
             let titulo = document.getElementById('Titulo')
@@ -34,13 +44,13 @@ export function FaseSelection( props) {
                 case 0:
 
                     bloqueio.style.display = "flex";
-                    titulo.innerText = "Você ainda não passou pelo Céu";
+                    titulo.innerText = "You have not completed the heaven stage";
                     
                     break;
 
                 case 1:
                     bloqueio.style.display = "flex";
-                    titulo.innerText = "Você ainda não passou pelo Inferno";
+                    titulo.innerText = "You have not completed the hell stage";
                     
                     break;
 
@@ -55,8 +65,8 @@ export function FaseSelection( props) {
     return (
         <div style={{display:_display}} className = 'paginaSelecao'>
             <header>
-            <h1>fases</h1>
-                <button onClick={()=>{window.location.href = '../'}}>
+            <h1>Stages</h1>
+                <button onClick={backMenu}>
                 <img className='seta' src={setaBack} alt="←" />
                 </button>
                 
@@ -72,12 +82,11 @@ export function FaseSelection( props) {
                         if(index==0){
                             return <div className = {'seletorDeFase fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
                         }
-                        if(fase === 1){
-                            return <div className = {'seletorDeFase fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
-                        }else{
-                            return <div className = {'seletorDeFase Concluida fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
-
+                        if(fasesConcluidas[index-1] === 1){
+                            return <div className = {'seletorDeFase  fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
                         }
+                        return <div className = {'seletorDeFase Concluida fase'+index} style={{gridRow:index+1}} onClick={ () => goTo(index+1)}></div>
+
                     })
                     }
                    

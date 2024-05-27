@@ -256,8 +256,12 @@ class SinglePlayerGame extends Component {
       x.appendChild(div);
     }
   }
+
   back() {
-    window.location.href = '../SinglePlayer/';
+    let x = document.getElementById('singleplayer');
+    x.click();
+    window.location.reload();   
+
   }
   render() {
     return (

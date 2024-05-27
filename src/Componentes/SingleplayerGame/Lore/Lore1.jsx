@@ -43,13 +43,14 @@ export function Lore1( props) {
 
                <SwiperSlide className='slide'>
                    <section>
-                       <p className='text'>Ela era tão habilidosa em pular corda que sua destreza parecia celestial. Sua maestria chamou a atenção tanto de Deus quanto do Diabo, que, intimidados por seu talento, enviaram emissários para teleportá-la a locais mágicos, onde suas habilidades seriam testadas.</p>
+                       <p className='text'>
+                       Rachel was so skilled at jumping rope that her dexterity seemed celestial. Her mastery caught the attention of both God and the Devil who, intimidated by her talent, sent emissaries to teleport her to magical places where her skills would be tested.</p>
                        
                    </section>
                </SwiperSlide>
                <SwiperSlide className='slide'>
                    <section>
-                   <p className='text'>Primeiro, Deus a enviou para pular sobre as nuvens.</p>
+                   <p className='text'>First, Gods envoy sent her to jump over the clouds.</p>
                        <button onClick={mostraFase}>Start</button>
                    </section>
                </SwiperSlide>
